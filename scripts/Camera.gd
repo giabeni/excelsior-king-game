@@ -1,8 +1,8 @@
 extends Camera
 
-# class member variables go here, for example:
-export var distance = 4.0
-export var height = 2.0
+# class member variables go here:
+export var distance = 8.0
+export var height = 4.0
 
 func _ready():
 	# Called every time the node is added to the scene.

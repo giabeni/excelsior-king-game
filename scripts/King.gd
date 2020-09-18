@@ -5,6 +5,7 @@ const GRAVITY = -9.8
 const SPEED = 6
 const ACCELERATION = 3
 const DEACCELERATION = 5
+const JUMP_IMPULSE = 40
 
 ### STATEFUL PROPERTIES ###
 var velocity = Vector3()
@@ -62,26 +63,33 @@ func _move_king(delta):
 	var accel = DEACCELERATION
 	
 	
-	if (dir.dot(hv) > 0):\
+	if (dir.dot(hv) > 0):
 		accel = ACCELERATION
 	
 	hv = hv.linear_interpolate(new_pos, accel * delta)	
 	
 	velocity.x = hv.x
 	velocity.z = hv.z
+	
+	if (Input.is_action_just_pressed("jump")):
+		velocity.y += JUMP_IMPULSE * delta
+		anim_tree.set('parameters/jump/blend_amount', velocity.y / JUMP_IMPULSE)
 		
 	velocity = move_and_slide(velocity, Vector3(0,1,0))
 	
 	if is_moving:
+		_rotate_king(hv)
 		
-		# Rotate the character
-		var angle = atan2(hv.x, hv.z)
-		
-		var char_rot = king.get_rotation()
-		
-		char_rot.y = angle
-		king.rotation = char_rot
 		
 	
 	var speed = hv.length() / SPEED
 	anim_tree.set('parameters/idle-walk-run/blend_amount', speed)
+
+func _rotate_king(hv):
+	var angle = clamp(atan2(hv.x, hv.z), -2*PI, 2*PI)
+	print('new angle', angle)
+	var char_rot = king.get_rotation()
+	print('cur angle', char_rot.y)	
+	
+	char_rot.y = angle
+	king.rotation = lerp(king.get_rotation(), char_rot, 0.2)
