@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/blockSlope.obj-c85c4db0260b3fa644beddddfefa9c83.mesh"
+
+[deps]
+
+files=[ "res://.import/blockSlope.obj-c85c4db0260b3fa644beddddfefa9c83.mesh" ]
+
+source_file="res://tileset/outsideModels/blockSlope.obj"
+dest_files=[ "res://.import/blockSlope.obj-c85c4db0260b3fa644beddddfefa9c83.mesh", "res://.import/blockSlope.obj-c85c4db0260b3fa644beddddfefa9c83.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

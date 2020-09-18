@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://tileset/insideModels/blockDirt.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://tileset/insideModels/blockDirtHalf.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://tileset/insideModels/blockDirtRamp.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://tileset/insideModels/blockDirtRampHalf.obj" type="ArrayMesh" id=4]
+
+[sub_resource type="ConcavePolygonShape" id=1]
+data = PoolVector3Array( -0.5, 1, -0.5, -0.5, 0, 0.5, -0.5, 0, -0.5, -0.5, 0, 0.5, -0.5, 1, -0.5, -0.5, 1, 0.5, 0.5, 0, -0.5, -0.5, 0, 0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, 0.5, 0, -0.5, -0.5, 0, -0.5, 0.5, 0, -0.5, 0.5, 1, 0.5, 0.5, 1, -0.5, 0.5, 1, 0.5, 0.5, 0, -0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, 0.5, 1, 0.5, 0.5, 0, 0.5, 0.5, 1, 0.5, -0.5, 0, 0.5, -0.5, 1, 0.5, 0.5, 0, -0.5, -0.5, 1, -0.5, -0.5, 0, -0.5, -0.5, 1, -0.5, 0.5, 0, -0.5, 0.5, 1, -0.5, -0.5, 1, 0.5, 0.5, 1, -0.5, 0.5, 1, 0.5, 0.5, 1, -0.5, -0.5, 1, 0.5, -0.5, 1, -0.5 )
+
+[sub_resource type="ConcavePolygonShape" id=2]
+data = PoolVector3Array( 0.5, 0, -0.5, -0.5, 0, 0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, 0.5, 0, -0.5, -0.5, 0, -0.5, 0.5, 0, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0, -0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, 0.5, 0.5, 0.5, 0.5, 0, 0.5, 0.5, 0.5, 0.5, -0.5, 0, 0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0, 0.5, -0.5, 0, -0.5, -0.5, 0, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0, -0.5, -0.5, 0.5, -0.5, -0.5, 0, -0.5, -0.5, 0.5, -0.5, 0.5, 0, -0.5, 0.5, 0.5, -0.5 )
+
+[sub_resource type="ConcavePolygonShape" id=3]
+data = PoolVector3Array( 0.5, 0, -0.5, -0.5, 0, 0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, 0.5, 0, -0.5, -0.5, 0, -0.5, 0.5, 0, -0.5, 0.5, 0, 0.5, 0.5, 1, -0.5, 0.5, 0, -0.5, -0.5, 1, -0.5, -0.5, 0, -0.5, -0.5, 1, -0.5, 0.5, 0, -0.5, 0.5, 1, -0.5, -0.5, 1, -0.5, -0.5, 0, 0.5, -0.5, 0, -0.5, -0.5, 0, 0.5, 0.5, 1, -0.5, 0.5, 0, 0.5, 0.5, 1, -0.5, -0.5, 0, 0.5, -0.5, 1, -0.5 )
+
+[sub_resource type="ConcavePolygonShape" id=4]
+data = PoolVector3Array( 0.5, 0, -0.5, -0.5, 0, 0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, 0.5, 0, -0.5, -0.5, 0, -0.5, -0.5, 0, 0.5, 0.5, 0.5, -0.5, 0.5, 0, 0.5, 0.5, 0.5, -0.5, -0.5, 0, 0.5, -0.5, 0.5, -0.5, 0.5, 0, -0.5, 0.5, 0, 0.5, 0.5, 0.5, -0.5, 0.5, 0, -0.5, -0.5, 0.5, -0.5, -0.5, 0, -0.5, -0.5, 0.5, -0.5, 0.5, 0, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0, 0.5, -0.5, 0, -0.5 )
+
+[node name="Spatial" type="Spatial"]
+
+[node name="blockDirt" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.701493, -1.66242, -0.227088 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="blockDirt"]
+
+[node name="CollisionShape" type="CollisionShape" parent="blockDirt/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="blockDirtHalf" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.10815, -1.66242, -0.227088 )
+mesh = ExtResource( 2 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="blockDirtHalf"]
+
+[node name="CollisionShape" type="CollisionShape" parent="blockDirtHalf/StaticBody"]
+shape = SubResource( 2 )
+
+[node name="blockDirtRamp" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.64815, -1.66242, 1.99252 )
+mesh = ExtResource( 3 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="blockDirtRamp"]
+
+[node name="CollisionShape" type="CollisionShape" parent="blockDirtRamp/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="blockDirtRampHalf" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.61258, -1.66242, -0.227088 )
+mesh = ExtResource( 4 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="blockDirtRampHalf"]
+
+[node name="CollisionShape" type="CollisionShape" parent="blockDirtRampHalf/StaticBody"]
+shape = SubResource( 4 )

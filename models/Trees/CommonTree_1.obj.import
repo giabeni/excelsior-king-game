@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/CommonTree_1.obj-be00d92eb1edcbf68335dd575febe887.mesh"
+
+[deps]
+
+files=[ "res://.import/CommonTree_1.obj-be00d92eb1edcbf68335dd575febe887.mesh" ]
+
+source_file="res://models/Trees/CommonTree_1.obj"
+dest_files=[ "res://.import/CommonTree_1.obj-be00d92eb1edcbf68335dd575febe887.mesh", "res://.import/CommonTree_1.obj-be00d92eb1edcbf68335dd575febe887.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

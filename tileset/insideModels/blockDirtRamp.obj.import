@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/blockDirtRamp.obj-69f42bbd3f6aec2a71a67cde4f1eec10.mesh"
+
+[deps]
+
+files=[ "res://.import/blockDirtRamp.obj-69f42bbd3f6aec2a71a67cde4f1eec10.mesh" ]
+
+source_file="res://tileset/insideModels/blockDirtRamp.obj"
+dest_files=[ "res://.import/blockDirtRamp.obj-69f42bbd3f6aec2a71a67cde4f1eec10.mesh", "res://.import/blockDirtRamp.obj-69f42bbd3f6aec2a71a67cde4f1eec10.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

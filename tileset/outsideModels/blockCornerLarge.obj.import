@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/blockCornerLarge.obj-a3752f4bbd768bf33b57c557a8894971.mesh"
+
+[deps]
+
+files=[ "res://.import/blockCornerLarge.obj-a3752f4bbd768bf33b57c557a8894971.mesh" ]
+
+source_file="res://tileset/outsideModels/blockCornerLarge.obj"
+dest_files=[ "res://.import/blockCornerLarge.obj-a3752f4bbd768bf33b57c557a8894971.mesh", "res://.import/blockCornerLarge.obj-a3752f4bbd768bf33b57c557a8894971.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
