@@ -106,5 +106,5 @@ func _check_deadly_fall():
 
 	if (velocity.y <= -MAX_VERTICAL_VELOCITY):
 		anim_tree.set('parameters/die/blend_amount', 1)
-		print("DEAD!!!")
+		get_tree().change_scene("res://scenes/GameOver.tscn")
 		
