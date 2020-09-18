@@ -101,6 +101,7 @@ func damage(amount):
 		#anim_tree.play('parameters/idle-walk-run/blend_amount')
 	
 func kill():
+	print('GAME OVER')
 	pass
 
 func _set_health(value):
