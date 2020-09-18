@@ -1,12 +1,12 @@
 extends KinematicBody
 
 ### GLOBAL CONSTANTS ###
-const GRAVITY = -20
+const GRAVITY = -25
 const SPEED = 12
 const ACCELERATION = 5
 const AIR_ACCEL_RES = 0.6
 const DEACCELERATION = 8
-const JUMP_IMPULSE = 14
+const JUMP_IMPULSE = 16
 const MAX_VERTICAL_VELOCITY = 50
 
 ### STATEFUL PROPERTIES ###
@@ -100,16 +100,18 @@ func _move_king(delta):
 
 func _rotate_king(hv):
 	var angle = clamp(atan2(hv.x, hv.z), -2*PI, 2*PI)
-	print('new angle', angle)
+	
 	var char_rot = king.get_rotation()
-	print('cur angle', char_rot.y)	
+	
 	
 	char_rot.y = angle
 	king.rotation = lerp(king.get_rotation(), char_rot, 0.2)
 	
 func kill():
 	anim_tree.set('parameters/die/blend_amount', 1)
+	yield(get_tree().create_timer(2.292), "timeout")
 	get_tree().change_scene("res://scenes/GameOver.tscn")
+	
 
 func _check_deadly_fall():
 	if (velocity.y <= -0.5 * MAX_VERTICAL_VELOCITY):
@@ -123,7 +125,8 @@ func damage(amount):
 	if invulnerability_timer.is_stopped():
 		invulnerability_timer.start()
 		_set_health(health - amount)
-		#anim_tree.play('parameters/idle-walk-run/blend_amount')
+		blink()
+		anim_tree.set('parameters/attacked/active', true)
 	
 func _set_health(value):
 	var prev_health = health
@@ -133,3 +136,18 @@ func _set_health(value):
 		if health == 0:
 			kill()
 			emit_signal("killed")
+
+
+func _on_animation_finished(anim_name):
+	pass
+	
+func blink():
+	var damage_material = load("res://models/King/SkinDamage.material")
+	var safe_material = load("res://models/King/Skin.material")
+	# Flicker 4 times
+	for i in 5:
+		$CharacterArmature/Skeleton/Body.set_surface_material(1, damage_material)
+		yield(get_tree().create_timer(0.1), "timeout")
+		$CharacterArmature/Skeleton/Body.set_surface_material(1, safe_material)
+		yield(get_tree().create_timer(0.1), "timeout")
+		
