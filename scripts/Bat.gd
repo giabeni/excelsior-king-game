@@ -6,7 +6,7 @@ extends KinematicBody
 # var b = "text"
 
 var player = null
-var speed = 25
+var speed = 20
 var once = 0
 var bat_velocity = Vector3.ZERO
 var bat_position = Vector3()
@@ -29,7 +29,7 @@ func _process(delta):
 		bat_velocity = bat_position.direction_to(player_position) * speed
 		timer.start()
 		var rotation = (bat_position * Vector3(1,0,1)).angle_to(player_position * Vector3(1,0,1))
-		rotate_y(rotation - PI)
+		rotate_y(rotation + PI / 2)
 		rotate_x(PI / 2 + 1)
 		anim.play("Bat_Flying")
 	move_and_slide(bat_velocity)
@@ -46,6 +46,8 @@ func _on_Timer_timeout():
 	timer.start()
 	queue_free()
 
-	
-	
-	
+
+func _on_damage_body_entered(body):
+	if body.has_method("damage"):
+		print("damage")
+		body.damage(1)

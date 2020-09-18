@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://models/Bat/Bat_Attack.anim" type="Animation" id=1]
 [ext_resource path="res://scripts/Bat.gd" type="Script" id=2]
@@ -132,7 +132,7 @@ bind/22/name = "feet_r"
 bind/22/bone = -1
 bind/22/pose = Transform( -0.0716884, -0.43724, -0.896483, 0.0231898, -0.899283, 0.436752, -0.997158, 0.0105208, 0.0746079, -0.0444591, 0.901217, -0.515966 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "Rotate"
 tracks/0/type = "method"
 tracks/0/path = NodePath("BatArmature")
@@ -146,11 +146,15 @@ tracks/0/keys = {
 "values": [  ]
 }
 
-[sub_resource type="CapsuleShape" id=3]
+[sub_resource type="CapsuleShape" id=4]
 height = 1.62302
 
-[sub_resource type="BoxShape" id=4]
+[sub_resource type="BoxShape" id=5]
 extents = Vector3( 11.7286, 5, 23.8151 )
+
+[sub_resource type="CapsuleShape" id=6]
+radius = 1.31041
+height = 2.09219
 
 [node name="Bat" type="KinematicBody"]
 script = ExtResource( 2 )
@@ -285,7 +289,7 @@ material/3 = null
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Bat_Attack = ExtResource( 1 )
 anims/Bat_Flying = ExtResource( 3 )
-anims/Rotate = SubResource( 5 )
+anims/Rotate = SubResource( 3 )
 
 [node name="Timer" type="Timer" parent="."]
 pause_mode = 2
@@ -294,12 +298,19 @@ one_shot = true
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.337572, 0.9413, 0, -0.9413, 0.337572, 0, 2.08238, 0.217525 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Area" type="Area" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
+
+[node name="damage" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="damage"]
+transform = Transform( 1, 0, 0, 0, -0.311158, -0.950358, 0, 0.950358, -0.311158, 0, 2.00406, 0.255496 )
+shape = SubResource( 6 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
+[connection signal="body_entered" from="damage" to="." method="_on_damage_body_entered"]
