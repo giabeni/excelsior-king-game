@@ -28,8 +28,8 @@ func _process(delta):
 		once = 1
 		bat_velocity = bat_position.direction_to(player_position) * speed
 		timer.start()
-		var rotation = bat_position.angle_to(player_position)
-		rotate_y(rotation)
+		var rotation = (bat_position * Vector3(1,0,1)).angle_to(player_position * Vector3(1,0,1))
+		rotate_y(rotation - PI)
 		rotate_x(PI / 2 + 1)
 		anim.play("Bat_Flying")
 	move_and_slide(bat_velocity)
@@ -42,6 +42,8 @@ func _on_Area_body_entered(body):
 
 
 func _on_Timer_timeout():
+	bat_velocity = bat_velocity * 2
+	timer.start()
 	queue_free()
 
 	
