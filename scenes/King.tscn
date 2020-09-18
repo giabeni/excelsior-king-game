@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://models/King/Skin.material" type="Material" id=1]
 [ext_resource path="res://models/King/Gold.material" type="Material" id=2]
@@ -172,6 +172,12 @@ bind/22/pose = Transform( 1, 0, 7.15256e-07, -5.68434e-14, 1, -1.19209e-07, -7.1
 radius = 0.757073
 height = 2.52743
 
+[sub_resource type="AnimationNodeAnimation" id=19]
+animation = "Defeat"
+
+[sub_resource type="AnimationNodeAnimation" id=20]
+animation = "Death"
+
 [sub_resource type="AnimationNodeOneShot" id=4]
 filter_enabled = true
 filters = [ "CharacterArmature/Skeleton:abdomen", "CharacterArmature/Skeleton:body", "CharacterArmature/Skeleton:bone", "CharacterArmature/Skeleton:fist_l", "CharacterArmature/Skeleton:fist_r", "CharacterArmature/Skeleton:head", "CharacterArmature/Skeleton:hips", "CharacterArmature/Skeleton:lower_arm_l", "CharacterArmature/Skeleton:lower_arm_r", "CharacterArmature/Skeleton:neck", "CharacterArmature/Skeleton:shoulder_l", "CharacterArmature/Skeleton:shoulder_r", "CharacterArmature/Skeleton:torso", "CharacterArmature/Skeleton:upper_arm_l", "CharacterArmature/Skeleton:upper_arm_r" ]
@@ -182,6 +188,8 @@ filters = [ "CharacterArmature/Skeleton:abdomen", "CharacterArmature/Skeleton:bo
 
 [sub_resource type="AnimationNodeAnimation" id=6]
 animation = "RecieveHit"
+
+[sub_resource type="AnimationNodeBlend2" id=21]
 
 [sub_resource type="AnimationNodeBlend3" id=7]
 
@@ -194,6 +202,8 @@ filters = [ "CharacterArmature/Skeleton:abdomen", "CharacterArmature/Skeleton:bo
 
 [sub_resource type="AnimationNodeAnimation" id=16]
 animation = "Jump"
+
+[sub_resource type="AnimationNodeBlend2" id=22]
 
 [sub_resource type="AnimationNodeOneShot" id=9]
 
@@ -215,28 +225,36 @@ animation = "Run"
 animation = "Walk"
 
 [sub_resource type="AnimationNodeBlendTree" id=14]
-graph_offset = Vector2( -265.337, 129.282 )
+graph_offset = Vector2( 340.508, 119.782 )
+nodes/Animation/node = SubResource( 19 )
+nodes/Animation/position = Vector2( 1900, 400 )
+nodes/Death/node = SubResource( 20 )
+nodes/Death/position = Vector2( 1640, 400 )
 nodes/attack/node = SubResource( 4 )
-nodes/attack/position = Vector2( 1200, 120 )
+nodes/attack/position = Vector2( 1300, 120 )
 nodes/attacked/node = SubResource( 5 )
-nodes/attacked/position = Vector2( 940, 120 )
+nodes/attacked/position = Vector2( 1040, 120 )
 nodes/damage/node = SubResource( 6 )
-nodes/damage/position = Vector2( 720, 400 )
+nodes/damage/position = Vector2( 840, 400 )
+nodes/die/node = SubResource( 21 )
+nodes/die/position = Vector2( 1820, 140 )
 nodes/idle/node = SubResource( 8 )
 nodes/idle/position = Vector2( 60, 160 )
 nodes/idle-walk-run/node = SubResource( 7 )
 nodes/idle-walk-run/position = Vector2( 360, 100 )
 nodes/jump/node = SubResource( 15 )
-nodes/jump/position = Vector2( 655.286, 101.406 )
+nodes/jump/position = Vector2( 640, 100 )
 nodes/jumping/node = SubResource( 16 )
 nodes/jumping/position = Vector2( 420, 400 )
-nodes/output/position = Vector2( 1660, 160 )
+nodes/loose/node = SubResource( 22 )
+nodes/loose/position = Vector2( 2120, 140 )
+nodes/output/position = Vector2( 2380, 160 )
 nodes/pick/node = SubResource( 9 )
-nodes/pick/position = Vector2( 1440, 120 )
+nodes/pick/position = Vector2( 1540, 120 )
 nodes/pickup/node = SubResource( 10 )
-nodes/pickup/position = Vector2( 1240, 400 )
+nodes/pickup/position = Vector2( 1340, 400 )
 nodes/punch/node = SubResource( 11 )
-nodes/punch/position = Vector2( 980, 400 )
+nodes/punch/position = Vector2( 1080, 400 )
 nodes/roll/node = SubResource( 17 )
 nodes/roll/position = Vector2( 60, 320 )
 nodes/rolling/node = SubResource( 18 )
@@ -245,7 +263,7 @@ nodes/run/node = SubResource( 12 )
 nodes/run/position = Vector2( -160, 300 )
 nodes/walk/node = SubResource( 13 )
 nodes/walk/position = Vector2( 60, 20 )
-node_connections = [ "pick", 0, "attack", "pick", 1, "pickup", "attacked", 0, "jump", "attacked", 1, "damage", "attack", 0, "attacked", "attack", 1, "punch", "output", 0, "pick", "jump", 0, "idle-walk-run", "jump", 1, "jumping", "roll", 0, "run", "roll", 1, "rolling", "idle-walk-run", 0, "walk", "idle-walk-run", 1, "idle", "idle-walk-run", 2, "roll" ]
+node_connections = [ "pick", 0, "attack", "pick", 1, "pickup", "attacked", 0, "jump", "attacked", 1, "damage", "attack", 0, "attacked", "attack", 1, "punch", "output", 0, "loose", "jump", 0, "idle-walk-run", "jump", 1, "jumping", "roll", 0, "run", "roll", 1, "rolling", "die", 0, "pick", "die", 1, "Death", "loose", 0, "die", "loose", 1, "Animation", "idle-walk-run", 0, "walk", "idle-walk-run", 1, "idle", "idle-walk-run", 2, "roll" ]
 
 [node name="King" type="KinematicBody"]
 
@@ -404,7 +422,9 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/attack/active = false
 parameters/attacked/active = false
+parameters/die/blend_amount = 0.0
 parameters/idle-walk-run/blend_amount = 0.0
 parameters/jump/active = false
+parameters/loose/blend_amount = 0.0
 parameters/pick/active = false
 parameters/roll/active = false
