@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://models/King/Skin.material" type="Material" id=1]
 [ext_resource path="res://models/King/Gold.material" type="Material" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://models/King/animations/Jump.anim" type="Animation" id=17]
 [ext_resource path="res://models/King/animations/Death.anim" type="Animation" id=18]
 [ext_resource path="res://models/King/animations/SwordSlash.anim" type="Animation" id=19]
+[ext_resource path="res://scripts/King.gd" type="Script" id=20]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Body"
@@ -225,7 +226,7 @@ animation = "Run"
 animation = "Walk"
 
 [sub_resource type="AnimationNodeBlendTree" id=22]
-graph_offset = Vector2( 340.508, 119.782 )
+graph_offset = Vector2( -29.142, 282 )
 nodes/Animation/node = SubResource( 4 )
 nodes/Animation/position = Vector2( 1900, 400 )
 nodes/Death/node = SubResource( 5 )
@@ -266,6 +267,7 @@ nodes/walk/position = Vector2( 60, 20 )
 node_connections = [ "output", 0, "loose", "attacked", 0, "jump", "attacked", 1, "damage", "loose", 0, "die", "loose", 1, "Animation", "attack", 0, "attacked", "attack", 1, "punch", "roll", 0, "run", "roll", 1, "rolling", "idle-walk-run", 0, "walk", "idle-walk-run", 1, "idle", "idle-walk-run", 2, "roll", "jump", 0, "idle-walk-run", "jump", 1, "jumping", "pick", 0, "attack", "pick", 1, "pickup", "die", 0, "pick", "die", 1, "Death" ]
 
 [node name="King" type="KinematicBody"]
+script = ExtResource( 20 )
 
 [node name="CharacterArmature" type="Spatial" parent="."]
 
@@ -428,3 +430,4 @@ parameters/jump/active = false
 parameters/loose/blend_amount = 0.0
 parameters/pick/active = false
 parameters/roll/active = false
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]
