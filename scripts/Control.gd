@@ -2,7 +2,7 @@ extends Control
 
 onready var label = get_node("Label")
 
-func _on_health_updated(health, amount):
+func _on_King_health_updated(health):
 	label.set_text(str(health))
 
 

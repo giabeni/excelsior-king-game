@@ -94,6 +94,7 @@ func _move_king(delta):
 	anim_tree.set('parameters/idle-walk-run/blend_amount', speed)
 	
 func damage(amount):
+	print('DAMAGE')
 	if invulnerability_timer.is_stopped():
 		invulnerability_timer.start()
 		_set_health(health - amount)
