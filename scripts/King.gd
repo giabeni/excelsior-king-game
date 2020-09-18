@@ -106,27 +106,25 @@ func _rotate_king(hv):
 	
 	char_rot.y = angle
 	king.rotation = lerp(king.get_rotation(), char_rot, 0.2)
+	
+func kill():
+	anim_tree.set('parameters/die/blend_amount', 1)
+	get_tree().change_scene("res://scenes/GameOver.tscn")
 
 func _check_deadly_fall():
 	if (velocity.y <= -0.5 * MAX_VERTICAL_VELOCITY):
 		anim_tree.set('parameters/idle-walk-run/blend_amount', 0)
 
 	if (velocity.y <= -MAX_VERTICAL_VELOCITY):
-		anim_tree.set('parameters/die/blend_amount', 1)
-		get_tree().change_scene("res://scenes/GameOver.tscn")
+		kill()
 		
 	
 func damage(amount):
-	print('DAMAGE')
 	if invulnerability_timer.is_stopped():
 		invulnerability_timer.start()
 		_set_health(health - amount)
 		#anim_tree.play('parameters/idle-walk-run/blend_amount')
 	
-func kill():
-	print('GAME OVER')
-	pass
-
 func _set_health(value):
 	var prev_health = health
 	health = clamp(value, 0, max_health)
@@ -135,4 +133,3 @@ func _set_health(value):
 		if health == 0:
 			kill()
 			emit_signal("killed")
- 
