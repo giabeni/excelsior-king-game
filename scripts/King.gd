@@ -16,6 +16,13 @@ var camera
 var anim_tree: AnimationTree
 var anim_player: AnimationPlayer
 
+### HEALTH VARIABLES ###
+export (float) var max_health = 3
+onready var health = max_health setget _set_health
+onready var invulnerability_timer = $InvulnerabilityTimer
+signal health_updated(health)
+signal killed()
+
 func _ready():
 	anim_tree = get_node("AnimationTree")
 	king = get_node(".")
@@ -85,3 +92,21 @@ func _move_king(delta):
 	
 	var speed = hv.length() / SPEED
 	anim_tree.set('parameters/idle-walk-run/blend_amount', speed)
+	
+func damage(amount):
+	if invulnerability_timer.is_stopped():
+		invulnerability_timer.start()
+		_set_health(health - amount)
+		#anim_tree.play('parameters/idle-walk-run/blend_amount')
+	
+func kill():
+	pass
+
+func _set_health(value):
+	var prev_health = health
+	health = clamp(value, 0, max_health)
+	if health != prev_health:
+		emit_signal("health_updated", health)
+		if health == 0:
+			kill()
+			emit_signal("killed")

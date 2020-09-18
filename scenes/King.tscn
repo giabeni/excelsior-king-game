@@ -162,7 +162,7 @@ bind/22/name = "pole_target_r"
 bind/22/bone = -1
 bind/22/pose = Transform( 1, 0, 7.15256e-07, -5.68434e-14, 1, -1.19209e-07, -7.15256e-07, 0, 1, 0.260682, -0.722117, -0.963032 )
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=3]
 resource_name = "Run (copy)"
 length = 0.875
 loop = true
@@ -811,64 +811,64 @@ tracks/91/imported = false
 tracks/91/enabled = true
 tracks/91/keys = PoolRealArray( 0, 1, 0, 0, 0, -3.55271e-15, 0, 0, 1, 1, 1, 1, 0.875, 1, 0, 0, 0, -3.55271e-15, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="CapsuleShape" id=15]
+[sub_resource type="CapsuleShape" id=4]
 radius = 0.757073
 height = 2.52743
-
-[sub_resource type="AnimationNodeOneShot" id=4]
-filter_enabled = true
-filters = [ "CharacterArmature/Skeleton:abdomen", "CharacterArmature/Skeleton:body", "CharacterArmature/Skeleton:bone", "CharacterArmature/Skeleton:fist_l", "CharacterArmature/Skeleton:fist_r", "CharacterArmature/Skeleton:head", "CharacterArmature/Skeleton:hips", "CharacterArmature/Skeleton:lower_arm_l", "CharacterArmature/Skeleton:lower_arm_r", "CharacterArmature/Skeleton:neck", "CharacterArmature/Skeleton:shoulder_l", "CharacterArmature/Skeleton:shoulder_r", "CharacterArmature/Skeleton:torso", "CharacterArmature/Skeleton:upper_arm_l", "CharacterArmature/Skeleton:upper_arm_r" ]
 
 [sub_resource type="AnimationNodeOneShot" id=5]
 filter_enabled = true
 filters = [ "CharacterArmature/Skeleton:abdomen", "CharacterArmature/Skeleton:body", "CharacterArmature/Skeleton:bone", "CharacterArmature/Skeleton:fist_l", "CharacterArmature/Skeleton:fist_r", "CharacterArmature/Skeleton:head", "CharacterArmature/Skeleton:hips", "CharacterArmature/Skeleton:lower_arm_l", "CharacterArmature/Skeleton:lower_arm_r", "CharacterArmature/Skeleton:neck", "CharacterArmature/Skeleton:shoulder_l", "CharacterArmature/Skeleton:shoulder_r", "CharacterArmature/Skeleton:torso", "CharacterArmature/Skeleton:upper_arm_l", "CharacterArmature/Skeleton:upper_arm_r" ]
 
-[sub_resource type="AnimationNodeAnimation" id=6]
+[sub_resource type="AnimationNodeOneShot" id=6]
+filter_enabled = true
+filters = [ "CharacterArmature/Skeleton:abdomen", "CharacterArmature/Skeleton:body", "CharacterArmature/Skeleton:bone", "CharacterArmature/Skeleton:fist_l", "CharacterArmature/Skeleton:fist_r", "CharacterArmature/Skeleton:head", "CharacterArmature/Skeleton:hips", "CharacterArmature/Skeleton:lower_arm_l", "CharacterArmature/Skeleton:lower_arm_r", "CharacterArmature/Skeleton:neck", "CharacterArmature/Skeleton:shoulder_l", "CharacterArmature/Skeleton:shoulder_r", "CharacterArmature/Skeleton:torso", "CharacterArmature/Skeleton:upper_arm_l", "CharacterArmature/Skeleton:upper_arm_r" ]
+
+[sub_resource type="AnimationNodeAnimation" id=7]
 animation = "RecieveHit"
 
-[sub_resource type="AnimationNodeBlend3" id=7]
+[sub_resource type="AnimationNodeBlend3" id=8]
 
-[sub_resource type="AnimationNodeAnimation" id=8]
+[sub_resource type="AnimationNodeAnimation" id=9]
 animation = "Idle"
 
-[sub_resource type="AnimationNodeOneShot" id=9]
-
-[sub_resource type="AnimationNodeAnimation" id=10]
-animation = "PickUp"
+[sub_resource type="AnimationNodeOneShot" id=10]
 
 [sub_resource type="AnimationNodeAnimation" id=11]
-animation = "Punch"
+animation = "PickUp"
 
 [sub_resource type="AnimationNodeAnimation" id=12]
-animation = "Run"
+animation = "Punch"
 
 [sub_resource type="AnimationNodeAnimation" id=13]
+animation = "Run"
+
+[sub_resource type="AnimationNodeAnimation" id=14]
 animation = "Walk"
 
-[sub_resource type="AnimationNodeBlendTree" id=14]
-graph_offset = Vector2( -293.898, -30.125 )
-nodes/attack/node = SubResource( 4 )
+[sub_resource type="AnimationNodeBlendTree" id=15]
+graph_offset = Vector2( 0, 65.5 )
+nodes/attack/node = SubResource( 5 )
 nodes/attack/position = Vector2( 860, 100 )
-nodes/attacked/node = SubResource( 5 )
+nodes/attacked/node = SubResource( 6 )
 nodes/attacked/position = Vector2( 600, 100 )
-nodes/damage/node = SubResource( 6 )
+nodes/damage/node = SubResource( 7 )
 nodes/damage/position = Vector2( 360, 380 )
-nodes/idle/node = SubResource( 8 )
+nodes/idle/node = SubResource( 9 )
 nodes/idle/position = Vector2( 60, 160 )
-nodes/idle-walk-run/node = SubResource( 7 )
+nodes/idle-walk-run/node = SubResource( 8 )
 nodes/idle-walk-run/position = Vector2( 360, 100 )
 nodes/output/position = Vector2( 1320, 140 )
-nodes/pick/node = SubResource( 9 )
+nodes/pick/node = SubResource( 10 )
 nodes/pick/position = Vector2( 1100, 100 )
-nodes/pickup/node = SubResource( 10 )
+nodes/pickup/node = SubResource( 11 )
 nodes/pickup/position = Vector2( 900, 380 )
-nodes/punch/node = SubResource( 11 )
+nodes/punch/node = SubResource( 12 )
 nodes/punch/position = Vector2( 640, 380 )
-nodes/run/node = SubResource( 12 )
+nodes/run/node = SubResource( 13 )
 nodes/run/position = Vector2( 60, 300 )
-nodes/walk/node = SubResource( 13 )
+nodes/walk/node = SubResource( 14 )
 nodes/walk/position = Vector2( 60, 20 )
-node_connections = [ "pick", 0, "attack", "pick", 1, "pickup", "attacked", 0, "idle-walk-run", "attacked", 1, "damage", "attack", 0, "attacked", "attack", 1, "punch", "output", 0, "pick", "idle-walk-run", 0, "walk", "idle-walk-run", 1, "idle", "idle-walk-run", 2, "run" ]
+node_connections = [ "output", 0, "pick", "pick", 0, "attack", "pick", 1, "pickup", "attacked", 0, "idle-walk-run", "attacked", 1, "damage", "idle-walk-run", 0, "walk", "idle-walk-run", 1, "idle", "idle-walk-run", 2, "run", "attack", 0, "attacked", "attack", 1, "punch" ]
 
 [node name="King" type="KinematicBody"]
 
@@ -1008,16 +1008,16 @@ anims/PickUp = ExtResource( 11 )
 anims/Punch = ExtResource( 8 )
 anims/RecieveHit = ExtResource( 10 )
 anims/Run = ExtResource( 13 )
-"anims/Run (copy)" = SubResource( 16 )
+"anims/Run (copy)" = SubResource( 3 )
 anims/SitDown = ExtResource( 12 )
 anims/Walk = ExtResource( 9 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.97958, 0 )
-shape = SubResource( 15 )
+shape = SubResource( 4 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 14 )
+tree_root = SubResource( 15 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/attack/active = false
