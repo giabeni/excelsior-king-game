@@ -182,18 +182,18 @@ animation = "Death"
 filter_enabled = true
 filters = [ "CharacterArmature/Skeleton:abdomen", "CharacterArmature/Skeleton:body", "CharacterArmature/Skeleton:bone", "CharacterArmature/Skeleton:fist_l", "CharacterArmature/Skeleton:fist_r", "CharacterArmature/Skeleton:head", "CharacterArmature/Skeleton:hips", "CharacterArmature/Skeleton:lower_arm_l", "CharacterArmature/Skeleton:lower_arm_r", "CharacterArmature/Skeleton:neck", "CharacterArmature/Skeleton:shoulder_l", "CharacterArmature/Skeleton:shoulder_r", "CharacterArmature/Skeleton:torso", "CharacterArmature/Skeleton:upper_arm_l", "CharacterArmature/Skeleton:upper_arm_r" ]
 
-[sub_resource type="AnimationNodeOneShot" id=6]
+[sub_resource type="AnimationNodeOneShot" id=5]
 filter_enabled = true
 filters = [ "CharacterArmature/Skeleton:abdomen", "CharacterArmature/Skeleton:body", "CharacterArmature/Skeleton:bone", "CharacterArmature/Skeleton:fist_l", "CharacterArmature/Skeleton:fist_r", "CharacterArmature/Skeleton:head", "CharacterArmature/Skeleton:hips", "CharacterArmature/Skeleton:lower_arm_l", "CharacterArmature/Skeleton:lower_arm_r", "CharacterArmature/Skeleton:neck", "CharacterArmature/Skeleton:shoulder_l", "CharacterArmature/Skeleton:shoulder_r", "CharacterArmature/Skeleton:torso", "CharacterArmature/Skeleton:upper_arm_l", "CharacterArmature/Skeleton:upper_arm_r" ]
 
-[sub_resource type="AnimationNodeAnimation" id=7]
+[sub_resource type="AnimationNodeAnimation" id=6]
 animation = "RecieveHit"
 
 [sub_resource type="AnimationNodeBlend2" id=21]
 
 [sub_resource type="AnimationNodeBlend3" id=7]
 
-[sub_resource type="AnimationNodeAnimation" id=9]
+[sub_resource type="AnimationNodeAnimation" id=8]
 animation = "Idle"
 
 [sub_resource type="AnimationNodeOneShot" id=15]
@@ -207,10 +207,10 @@ animation = "Jump"
 
 [sub_resource type="AnimationNodeOneShot" id=9]
 
-[sub_resource type="AnimationNodeAnimation" id=11]
+[sub_resource type="AnimationNodeAnimation" id=10]
 animation = "PickUp"
 
-[sub_resource type="AnimationNodeAnimation" id=12]
+[sub_resource type="AnimationNodeAnimation" id=11]
 animation = "Punch"
 
 [sub_resource type="AnimationNodeOneShot" id=17]
@@ -221,7 +221,7 @@ animation = "Roll"
 [sub_resource type="AnimationNodeAnimation" id=12]
 animation = "Run"
 
-[sub_resource type="AnimationNodeAnimation" id=14]
+[sub_resource type="AnimationNodeAnimation" id=13]
 animation = "Walk"
 
 [sub_resource type="AnimationNodeBlendTree" id=14]
@@ -240,9 +240,8 @@ nodes/die/node = SubResource( 21 )
 nodes/die/position = Vector2( 1820, 140 )
 nodes/idle/node = SubResource( 8 )
 nodes/idle/position = Vector2( 60, 160 )
-nodes/idle-walk-run/node = SubResource( 8 )
+nodes/idle-walk-run/node = SubResource( 7 )
 nodes/idle-walk-run/position = Vector2( 360, 100 )
-
 nodes/jump/node = SubResource( 15 )
 nodes/jump/position = Vector2( 640, 100 )
 nodes/jumping/node = SubResource( 16 )
@@ -265,7 +264,6 @@ nodes/run/position = Vector2( -160, 300 )
 nodes/walk/node = SubResource( 13 )
 nodes/walk/position = Vector2( 60, 20 )
 node_connections = [ "pick", 0, "attack", "pick", 1, "pickup", "attacked", 0, "jump", "attacked", 1, "damage", "attack", 0, "attacked", "attack", 1, "punch", "output", 0, "loose", "jump", 0, "idle-walk-run", "jump", 1, "jumping", "roll", 0, "run", "roll", 1, "rolling", "die", 0, "pick", "die", 1, "Death", "loose", 0, "die", "loose", 1, "Animation", "idle-walk-run", 0, "walk", "idle-walk-run", 1, "idle", "idle-walk-run", 2, "roll" ]
-
 
 [node name="King" type="KinematicBody"]
 
@@ -409,7 +407,6 @@ anims/Punch = ExtResource( 8 )
 anims/RecieveHit = ExtResource( 10 )
 anims/Roll = ExtResource( 16 )
 anims/Run = ExtResource( 13 )
-
 anims/SitDown = ExtResource( 12 )
 anims/SwordSlash = ExtResource( 19 )
 anims/Victory = ExtResource( 14 )
@@ -420,7 +417,7 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.97
 shape = SubResource( 3 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 15 )
+tree_root = SubResource( 14 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/attack/active = false
