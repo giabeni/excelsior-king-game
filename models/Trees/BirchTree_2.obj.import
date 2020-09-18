@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/BirchTree_2.obj-038a2c8c5ac229ba91009044a3aaea3a.mesh"
+
+[deps]
+
+files=[ "res://.import/BirchTree_2.obj-038a2c8c5ac229ba91009044a3aaea3a.mesh" ]
+
+source_file="res://models/Trees/BirchTree_2.obj"
+dest_files=[ "res://.import/BirchTree_2.obj-038a2c8c5ac229ba91009044a3aaea3a.mesh", "res://.import/BirchTree_2.obj-038a2c8c5ac229ba91009044a3aaea3a.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

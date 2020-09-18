@@ -47,6 +47,46 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 4 )
 material/0 = SubResource( 5 )
 
+[node name="Platform2" type="StaticBody" parent="."]
+transform = Transform( 1.65614, 0, 0, 0, 1, 0, 0, 0, -1.00581, 0, 3.58834, 28.1255 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Platform2"]
+shape = SubResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Platform2"]
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
+
+[node name="Platform5" type="StaticBody" parent="."]
+transform = Transform( 1.65614, 0, 0, 0, 1, 0, 0, 0, -1.00581, -28.7264, 3.58834, 28.1255 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Platform5"]
+shape = SubResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Platform5"]
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
+
+[node name="Platform3" type="StaticBody" parent="."]
+transform = Transform( 1.65614, 0, 0, 0, 1, 0, 0, 0, -1.00581, 24.0403, 6.61728, 28.1255 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Platform3"]
+shape = SubResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Platform3"]
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
+
+[node name="Platform4" type="StaticBody" parent="."]
+transform = Transform( 1.65614, 0, 0, 0, 0.844487, -0.538689, 0, -1.18985, -1.88703, 24.0403, 2.89075, -5.62161 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Platform4"]
+shape = SubResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Platform4"]
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
+
 [node name="King" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
 script = ExtResource( 2 )

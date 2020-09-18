@@ -1,10 +1,13 @@
 extends KinematicBody
 
 ### GLOBAL CONSTANTS ###
-const GRAVITY = -9.8
-const SPEED = 6
-const ACCELERATION = 3
-const DEACCELERATION = 5
+const GRAVITY = -20
+const SPEED = 12
+const ACCELERATION = 5
+const AIR_ACCEL_RES = 0.6
+const DEACCELERATION = 8
+const JUMP_IMPULSE = 14
+const MAX_VERTICAL_VELOCITY = 50
 
 ### STATEFUL PROPERTIES ###
 var velocity = Vector3()
@@ -61,37 +64,57 @@ func _move_king(delta):
 	dir.y = 0	
 	dir = dir.normalized()
 	
-	velocity.y += delta * GRAVITY
+	velocity.y += clamp(delta * GRAVITY, -MAX_VERTICAL_VELOCITY, MAX_VERTICAL_VELOCITY)
 
 	var hv = velocity # horizontal velocity
 	hv.y = 0
 	var new_pos = dir * SPEED
-	var accel = DEACCELERATION
+	var accel_resistance = 1 if is_on_floor() else AIR_ACCEL_RES
+	var accel = DEACCELERATION * accel_resistance
 	
 	
-	if (dir.dot(hv) > 0):\
-		accel = ACCELERATION
+	if (dir.dot(hv) > 0):
+		accel = ACCELERATION * accel_resistance
 	
 	hv = hv.linear_interpolate(new_pos, accel * delta)	
 	
 	velocity.x = hv.x
 	velocity.z = hv.z
+	
+	if (Input.is_action_just_pressed("jump") and is_on_floor()):
+		velocity.y = JUMP_IMPULSE
+		anim_tree.set('parameters/jump/active', true)
 		
 	velocity = move_and_slide(velocity, Vector3(0,1,0))
 	
+	# check if player is falling to death
+	_check_deadly_fall()
+	
 	if is_moving:
+		_rotate_king(hv)
 		
-		# Rotate the character
-		var angle = atan2(hv.x, hv.z)
-		
-		var char_rot = king.get_rotation()
-		
-		char_rot.y = angle
-		king.rotation = char_rot
 		
 	
 	var speed = hv.length() / SPEED
 	anim_tree.set('parameters/idle-walk-run/blend_amount', speed)
+
+func _rotate_king(hv):
+	var angle = clamp(atan2(hv.x, hv.z), -2*PI, 2*PI)
+	print('new angle', angle)
+	var char_rot = king.get_rotation()
+	print('cur angle', char_rot.y)	
+	
+	char_rot.y = angle
+	king.rotation = lerp(king.get_rotation(), char_rot, 0.2)
+
+func _check_deadly_fall():
+	if (velocity.y <= -0.5 * MAX_VERTICAL_VELOCITY):
+		anim_tree.set('parameters/idle-walk-run/blend_amount', 0)
+
+	if (velocity.y <= -MAX_VERTICAL_VELOCITY):
+		anim_tree.set('parameters/die/blend_amount', 1)
+		print("DEAD!!!")
+		
 	
 func damage(amount):
 	print('DAMAGE')
@@ -112,3 +135,4 @@ func _set_health(value):
 		if health == 0:
 			kill()
 			emit_signal("killed")
+ 
