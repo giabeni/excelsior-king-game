@@ -11,14 +11,40 @@
 [ext_resource path="res://scenes/Star.tscn" type="PackedScene" id=9]
 
 [sub_resource type="ProceduralSky" id=1]
+sky_top_color = Color( 0.882353, 0.764706, 0.592157, 1 )
+sky_horizon_color = Color( 0.894118, 0.439216, 0.305882, 1 )
+sky_curve = 0.0658838
+sky_energy = 2.0
+ground_bottom_color = Color( 0.270588, 0.760784, 0.811765, 1 )
+ground_horizon_color = Color( 0.882353, 0.764706, 0.592157, 1 )
+ground_curve = 0.101965
+sun_color = Color( 0.964706, 0.152941, 0.113725, 1 )
+sun_latitude = 5.0
+sun_angle_min = 4.22
+sun_angle_max = 151.43
 
 [sub_resource type="Environment" id=2]
 background_mode = 2
 background_sky = SubResource( 1 )
+ambient_light_sky_contribution = 0.71
+fog_enabled = true
+fog_color = Color( 0.615686, 0.807843, 0.705882, 1 )
+fog_sun_color = Color( 1, 0.768627, 0.701961, 1 )
+fog_sun_amount = 0.03
+fog_depth_end = 300.0
+fog_height_enabled = true
+fog_height_max = 1152.6
+fog_height_curve = 0.378929
 tonemap_mode = 2
+ss_reflections_max_steps = 128
+ss_reflections_depth_tolerance = 0.1
 ssao_enabled = true
 ssao_quality = 2
 ssao_blur = 1
+dof_blur_far_distance = 39.94
+dof_blur_far_transition = 44.78
+dof_blur_far_amount = 0.04
+dof_blur_near_distance = 3.18
 glow_enabled = true
 glow_intensity = 0.78
 glow_bloom = 0.06
@@ -117,4 +143,18 @@ stretch_mode = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -0.853378, 0.521293, 0, -0.521293, -0.853378, 14.3497, 33.2025, -296.237 )
+light_color = Color( 0.956863, 0.639216, 0.639216, 1 )
+light_specular = 0.55
+shadow_enabled = true
+shadow_bias = 0.27
+shadow_contact = 2.0
+directional_shadow_split_1 = 0.042
+directional_shadow_split_2 = 0.241
+directional_shadow_split_3 = 0.384
+directional_shadow_normal_bias = 3.2
+directional_shadow_bias_split_scale = 0.14
+directional_shadow_max_distance = 37.7
 [connection signal="health_updated" from="King" to="UI" method="_on_King_health_updated"]
