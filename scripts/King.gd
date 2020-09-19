@@ -242,4 +242,4 @@ func win():
 	anim_tree.set('parameters/win/active', true)
 	get_tree().get_root().get_node("Root/VictoryUI").show()
 	yield(get_tree().create_timer(5), "timeout")
-	get_tree().get_root().get_node("Root/VictoryUI").hide()
+	get_tree().change_scene("res://scenes/Menu.tscn")
