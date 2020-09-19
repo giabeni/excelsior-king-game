@@ -130,7 +130,7 @@ func _move_king(delta):
 		velocity += dir * DASH_IMPULSE
 		dash_timer.start()
 		
-	velocity = move_and_slide(velocity, Vector3(0,1,0))
+	velocity = move_and_slide(velocity, Vector3(0,1,0), false, 4, deg2rad(60))
 	
 	# check if player is falling to death
 	_check_deadly_fall()
