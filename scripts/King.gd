@@ -9,12 +9,14 @@ const DEACCELERATION = 8
 const JUMP_IMPULSE = 16
 const MAX_VERTICAL_VELOCITY = 50
 const DASH_IMPULSE = 30
+const SUPER_JUMP_MULTIPLIER = 1.5
 
 ### STATEFUL PROPERTIES ###
 var velocity = Vector3()
 var is_moving = false
 var has_double_jump = false
 var has_dash = false
+var has_super_jump = false
 var can_double_jump = true
 onready var dash_timer = $DashTimer
 
@@ -87,7 +89,10 @@ func _move_king(delta):
 	velocity.z = hv.z
 	
 	if (Input.is_action_just_pressed("jump") and is_on_floor()):
-		velocity.y = JUMP_IMPULSE
+		if has_super_jump:
+			velocity.y = JUMP_IMPULSE * SUPER_JUMP_MULTIPLIER
+		else:
+			velocity.y = JUMP_IMPULSE
 		anim_tree.set('parameters/jump/active', true)
 
 	if is_on_floor():
