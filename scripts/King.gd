@@ -230,3 +230,13 @@ func _on_Run_in_grass_finished():
 
 func _on_Run_in_cave_finished():
 	running_in_cave = false
+
+
+func win():
+	get_tree().get_root().get_node("Root/Level 1/BackgroundMusic").stop()
+	get_tree().get_root().get_node("Root/Victory").play()
+	get_tree().get_root().get_node("Root/UI").hide()
+	anim_tree.set('parameters/win/active', true)
+	get_tree().get_root().get_node("Root/VictoryUI").show()
+	yield(get_tree().create_timer(5), "timeout")
+	get_tree().get_root().get_node("Root/VictoryUI").hide()

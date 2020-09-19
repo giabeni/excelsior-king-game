@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/341985__unadamlar__goodresult.wav-f5ca588867898c9481a41db1aabc1849.sample"
+
+[deps]
+
+source_file="res://soundtrack/341985__unadamlar__goodresult.wav"
+dest_files=[ "res://.import/341985__unadamlar__goodresult.wav-f5ca588867898c9481a41db1aabc1849.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
