@@ -1,0 +1,11 @@
+[gd_resource type="SpatialMaterial" load_steps=3 format=2]
+
+[ext_resource path="res://tileset/textures/Grass_002_COLOR(1).jpg" type="Texture" id=2]
+[ext_resource path="res://tileset/textures/Grass_002_DISP.png" type="Texture" id=3]
+
+[resource]
+albedo_color = Color( 0.678431, 0.898039, 0.0745098, 1 )
+albedo_texture = ExtResource( 2 )
+normal_enabled = true
+normal_scale = -0.86
+normal_texture = ExtResource( 3 )
