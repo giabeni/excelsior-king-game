@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Single-footstep-in-grass-F-www.fesliyanstudios.com.wav-3222816eddaf1c2841630a49e935e6d7.sample"
+
+[deps]
+
+source_file="res://models/King/animations/Single-footstep-in-grass-F-www.fesliyanstudios.com.wav"
+dest_files=[ "res://.import/Single-footstep-in-grass-F-www.fesliyanstudios.com.wav-3222816eddaf1c2841630a49e935e6d7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

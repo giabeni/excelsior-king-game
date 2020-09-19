@@ -18,6 +18,10 @@ var king: KinematicBody
 var camera
 var anim_tree: AnimationTree
 var anim_player: AnimationPlayer
+var run_in_grass: AudioStreamPlayer
+var land_in_grass: AudioStreamPlayer
+var run_in_cave: AudioStreamPlayer
+var land_in_cave: AudioStreamPlayer
 
 ### HEALTH VARIABLES ###
 export (float) var max_health = 3
@@ -26,8 +30,15 @@ onready var invulnerability_timer = $InvulnerabilityTimer
 signal health_updated(health)
 signal killed()
 
+### SOUND VARIABLES ###
+var running_in_grass = false
+var running_in_cave = false
+
 func _ready():
 	anim_tree = get_node("AnimationTree")
+	run_in_grass = get_node("Run_in_grass")
+	run_in_cave = get_node("Run_in_cave")
+	land_in_grass = get_node("Land_in_grass")
 	king = get_node(".")
 
 func _process(_delta):
@@ -37,6 +48,7 @@ func _physics_process(delta):
 	camera = get_node("Target/Camera").get_global_transform()
 
 	self._move_king(delta)
+	self.play_running_sound()
 	
 	
 func _move_king(delta):
@@ -150,4 +162,31 @@ func blink():
 		yield(get_tree().create_timer(0.1), "timeout")
 		$CharacterArmature/Skeleton/Body.set_surface_material(1, safe_material)
 		yield(get_tree().create_timer(0.1), "timeout")
-		
+
+
+func play_running_sound():
+	if is_on_floor() and is_moving:
+		for i in get_slide_count():
+			var collision = get_slide_collision(i)
+			if collision.collider.name == "GridMap" and !running_in_grass:
+				run_in_cave.stop()
+				run_in_grass.play()
+				running_in_grass = true
+			elif collision.collider.name == "GridMap2" and !running_in_cave:
+				run_in_grass.stop()
+				run_in_cave.play()
+				running_in_cave = true
+	elif running_in_grass and !is_moving:
+		running_in_grass = false
+		run_in_grass.stop()
+	elif running_in_cave and !is_moving:
+		running_in_cave = false
+		run_in_cave.stop()
+
+
+func _on_Run_in_grass_finished():
+	running_in_grass = false
+
+
+func _on_Run_in_cave_finished():
+	running_in_cave = false
