@@ -41,12 +41,10 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 1020.0
-margin_bottom = 600.0
-color = Color( 0.152941, 0.164706, 0.329412, 0.823529 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+margin_top = -2.0
+margin_right = 2001.0
+margin_bottom = 1463.0
+color = Color( 0.4, 0.0470588, 0.52549, 1 )
 
 [node name="Label" type="Label" parent="."]
 margin_right = 1024.0

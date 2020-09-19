@@ -6,3 +6,4 @@ func _ready():
 
 func _on_button_restart_pressed():
 	get_tree().change_scene("res://scenes/Root.tscn")
+	
