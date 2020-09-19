@@ -9,4 +9,4 @@ func _ready():
 	pass
 
 func _on_button_restart_pressed():
-	get_tree().change_scene("res://scenes/Menu.tscn")
+	get_tree().change_scene("res://scenes/Root.tscn")
