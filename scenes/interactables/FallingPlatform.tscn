@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/FallingPlatform.gd" type="Script" id=1]
 [ext_resource path="res://tileset/textures/external-content.duckduckgo.com.jpeg" type="Texture" id=2]
 [ext_resource path="res://tileset/textures/rock_3_diff_1k.jpg" type="Texture" id=3]
 [ext_resource path="res://tileset/textures/rock_3_rough_1k.jpg" type="Texture" id=4]
+[ext_resource path="res://soundtrack/446118__justinvoke__crack-1.wav" type="AudioStream" id=5]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -48,6 +49,11 @@ one_shot = true
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.578156, 0 )
 shape = SubResource( 4 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -8.0
+mix_target = 1
 [connection signal="timeout" from="FallTimer" to="." method="_on_FallTimer_timeout"]
 [connection signal="timeout" from="RespawnTimer" to="." method="_on_RespawnTimer_timeout"]
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
