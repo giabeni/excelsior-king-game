@@ -120,6 +120,7 @@ func _rotate_king(hv):
 	king.rotation = lerp(king.get_rotation(), char_rot, 0.2)
 	
 func kill():
+	get_tree().get_root().get_node("Root/Level1/BackgroundMusic").stop()
 	anim_tree.set('parameters/die/blend_amount', 1)
 	yield(get_tree().create_timer(2.292), "timeout")
 	get_tree().change_scene("res://scenes/GameOver.tscn")

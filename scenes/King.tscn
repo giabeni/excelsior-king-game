@@ -421,10 +421,6 @@ anims/Walk = ExtResource( 9 )
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.97958, 0 )
 shape = SubResource( 3 )
 
-[node name="Run_in_grass" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 21 )
-volume_db = -15.031
-
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 22 )
 anim_player = NodePath("../AnimationPlayer")
@@ -437,6 +433,10 @@ parameters/jump/active = false
 parameters/loose/blend_amount = 0.0
 parameters/pick/active = false
 parameters/roll/active = false
+
+[node name="Run_in_grass" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 21 )
+volume_db = -15.031
 
 [node name="Land_in_grass" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 22 )

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/button-restart.gd" type="Script" id=1]
 [ext_resource path="res://fonts/grobe/grobe-deutschmeister.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://soundtrack/POL-mad-plans-short.wav" type="AudioStream" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 70
@@ -77,4 +78,8 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="GameOverMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
 [connection signal="pressed" from="button-restart" to="button-restart" method="_on_button_restart_pressed"]
