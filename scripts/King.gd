@@ -8,12 +8,15 @@ const AIR_ACCEL_RES = 0.6
 const DEACCELERATION = 8
 const JUMP_IMPULSE = 16
 const MAX_VERTICAL_VELOCITY = 50
+const DASH_IMPULSE = 30
 
 ### STATEFUL PROPERTIES ###
 var velocity = Vector3()
 var is_moving = false
 var has_double_jump = false
+var has_dash = false
 var can_double_jump = true
+onready var dash_timer = $DashTimer
 
 ### RELATED NODES ###
 var king: KinematicBody
@@ -94,6 +97,10 @@ func _move_king(delta):
 		velocity.y = JUMP_IMPULSE
 		can_double_jump = false
 		anim_tree.set('parameters/jump/active', true)
+		
+	if (Input.is_action_just_pressed("walk") and has_dash and dash_timer.is_stopped()):
+		velocity += dir * DASH_IMPULSE
+		dash_timer.start()
 		
 	velocity = move_and_slide(velocity, Vector3(0,1,0))
 	
