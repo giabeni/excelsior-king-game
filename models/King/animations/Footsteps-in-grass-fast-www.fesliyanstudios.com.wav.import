@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Footsteps-in-grass-fast-www.fesliyanstudios.com.wav-4ff80c4894009d615a5f6bee970970c4.sample"
+
+[deps]
+
+source_file="res://models/King/animations/Footsteps-in-grass-fast-www.fesliyanstudios.com.wav"
+dest_files=[ "res://.import/Footsteps-in-grass-fast-www.fesliyanstudios.com.wav-4ff80c4894009d615a5f6bee970970c4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

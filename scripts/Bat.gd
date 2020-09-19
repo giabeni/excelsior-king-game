@@ -49,5 +49,4 @@ func _on_Timer_timeout():
 
 func _on_damage_body_entered(body):
 	if body.has_method("damage"):
-		print("damage")
 		body.damage(1)
