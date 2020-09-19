@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/PM_FN_Events_LvlUps_PowerUps_12.wav-16280775dfeb2ab062e1257965339743.sample"
+
+[deps]
+
+source_file="res://soundtrack/PM_FN_Events_LvlUps_PowerUps_12.wav"
+dest_files=[ "res://.import/PM_FN_Events_LvlUps_PowerUps_12.wav-16280775dfeb2ab062e1257965339743.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
