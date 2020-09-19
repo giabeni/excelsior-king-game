@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Walking-on-Gravel--Medium--www.fesliyanstudios.com.wav-c7dacc1b7020001145a46e79fd04a6c5.sample"
+
+[deps]
+
+source_file="res://models/King/animations/Walking-on-Gravel--Medium--www.fesliyanstudios.com.wav"
+dest_files=[ "res://.import/Walking-on-Gravel--Medium--www.fesliyanstudios.com.wav-c7dacc1b7020001145a46e79fd04a6c5.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
