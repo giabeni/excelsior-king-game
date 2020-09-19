@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://models/King/Skin.material" type="Material" id=1]
 [ext_resource path="res://models/King/Gold.material" type="Material" id=2]
@@ -185,92 +185,101 @@ animation = "Defeat"
 [sub_resource type="AnimationNodeAnimation" id=5]
 animation = "Death"
 
-[sub_resource type="AnimationNodeOneShot" id=6]
-filter_enabled = true
-filters = [ "CharacterArmature/Skeleton:abdomen", "CharacterArmature/Skeleton:body", "CharacterArmature/Skeleton:bone", "CharacterArmature/Skeleton:fist_l", "CharacterArmature/Skeleton:fist_r", "CharacterArmature/Skeleton:head", "CharacterArmature/Skeleton:hips", "CharacterArmature/Skeleton:lower_arm_l", "CharacterArmature/Skeleton:lower_arm_r", "CharacterArmature/Skeleton:neck", "CharacterArmature/Skeleton:shoulder_l", "CharacterArmature/Skeleton:shoulder_r", "CharacterArmature/Skeleton:torso", "CharacterArmature/Skeleton:upper_arm_l", "CharacterArmature/Skeleton:upper_arm_r" ]
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "Victory"
 
 [sub_resource type="AnimationNodeOneShot" id=7]
 filter_enabled = true
 filters = [ "CharacterArmature/Skeleton:abdomen", "CharacterArmature/Skeleton:body", "CharacterArmature/Skeleton:bone", "CharacterArmature/Skeleton:fist_l", "CharacterArmature/Skeleton:fist_r", "CharacterArmature/Skeleton:head", "CharacterArmature/Skeleton:hips", "CharacterArmature/Skeleton:lower_arm_l", "CharacterArmature/Skeleton:lower_arm_r", "CharacterArmature/Skeleton:neck", "CharacterArmature/Skeleton:shoulder_l", "CharacterArmature/Skeleton:shoulder_r", "CharacterArmature/Skeleton:torso", "CharacterArmature/Skeleton:upper_arm_l", "CharacterArmature/Skeleton:upper_arm_r" ]
 
-[sub_resource type="AnimationNodeAnimation" id=8]
+[sub_resource type="AnimationNodeOneShot" id=8]
+filter_enabled = true
+filters = [ "CharacterArmature/Skeleton:abdomen", "CharacterArmature/Skeleton:body", "CharacterArmature/Skeleton:bone", "CharacterArmature/Skeleton:fist_l", "CharacterArmature/Skeleton:fist_r", "CharacterArmature/Skeleton:head", "CharacterArmature/Skeleton:hips", "CharacterArmature/Skeleton:lower_arm_l", "CharacterArmature/Skeleton:lower_arm_r", "CharacterArmature/Skeleton:neck", "CharacterArmature/Skeleton:shoulder_l", "CharacterArmature/Skeleton:shoulder_r", "CharacterArmature/Skeleton:torso", "CharacterArmature/Skeleton:upper_arm_l", "CharacterArmature/Skeleton:upper_arm_r" ]
+
+[sub_resource type="AnimationNodeAnimation" id=9]
 animation = "RecieveHit"
 
-[sub_resource type="AnimationNodeBlend2" id=9]
+[sub_resource type="AnimationNodeBlend2" id=10]
 
-[sub_resource type="AnimationNodeBlend3" id=10]
+[sub_resource type="AnimationNodeBlend3" id=11]
 
-[sub_resource type="AnimationNodeAnimation" id=11]
+[sub_resource type="AnimationNodeAnimation" id=12]
 animation = "Idle"
 
-[sub_resource type="AnimationNodeOneShot" id=12]
+[sub_resource type="AnimationNodeOneShot" id=13]
 filter_enabled = true
 filters = [ "CharacterArmature/Skeleton:abdomen", "CharacterArmature/Skeleton:body", "CharacterArmature/Skeleton:bone", "CharacterArmature/Skeleton:foot_l", "CharacterArmature/Skeleton:foot_r", "CharacterArmature/Skeleton:head", "CharacterArmature/Skeleton:hips", "CharacterArmature/Skeleton:lower_leg_l", "CharacterArmature/Skeleton:lower_leg_r", "CharacterArmature/Skeleton:neck", "CharacterArmature/Skeleton:pole_target_l", "CharacterArmature/Skeleton:pole_target_r", "CharacterArmature/Skeleton:torso", "CharacterArmature/Skeleton:upper_leg_l", "CharacterArmature/Skeleton:upper_leg_r" ]
 
-[sub_resource type="AnimationNodeAnimation" id=13]
+[sub_resource type="AnimationNodeAnimation" id=14]
 animation = "Jump"
 
-[sub_resource type="AnimationNodeBlend2" id=14]
+[sub_resource type="AnimationNodeBlend2" id=15]
 
-[sub_resource type="AnimationNodeOneShot" id=15]
-
-[sub_resource type="AnimationNodeAnimation" id=16]
-animation = "PickUp"
+[sub_resource type="AnimationNodeOneShot" id=16]
 
 [sub_resource type="AnimationNodeAnimation" id=17]
+animation = "PickUp"
+
+[sub_resource type="AnimationNodeAnimation" id=18]
 animation = "Punch"
 
-[sub_resource type="AnimationNodeOneShot" id=18]
-
-[sub_resource type="AnimationNodeAnimation" id=19]
-animation = "Roll"
+[sub_resource type="AnimationNodeOneShot" id=19]
 
 [sub_resource type="AnimationNodeAnimation" id=20]
-animation = "Run"
+animation = "Roll"
 
 [sub_resource type="AnimationNodeAnimation" id=21]
+animation = "Run"
+
+[sub_resource type="AnimationNodeAnimation" id=22]
 animation = "Walk"
 
-[sub_resource type="AnimationNodeBlendTree" id=22]
-graph_offset = Vector2( -29.142, 282 )
+[sub_resource type="AnimationNodeOneShot" id=23]
+
+[sub_resource type="AnimationNodeBlendTree" id=24]
+graph_offset = Vector2( 1724, 118 )
 nodes/Animation/node = SubResource( 4 )
 nodes/Animation/position = Vector2( 1900, 400 )
 nodes/Death/node = SubResource( 5 )
 nodes/Death/position = Vector2( 1640, 400 )
-nodes/attack/node = SubResource( 6 )
+nodes/Victory/node = SubResource( 6 )
+nodes/Victory/position = Vector2( 2100, 400 )
+nodes/attack/node = SubResource( 7 )
 nodes/attack/position = Vector2( 1300, 120 )
-nodes/attacked/node = SubResource( 7 )
+nodes/attacked/node = SubResource( 8 )
 nodes/attacked/position = Vector2( 1040, 120 )
-nodes/damage/node = SubResource( 8 )
+nodes/damage/node = SubResource( 9 )
 nodes/damage/position = Vector2( 840, 400 )
-nodes/die/node = SubResource( 9 )
+nodes/die/node = SubResource( 10 )
 nodes/die/position = Vector2( 1820, 140 )
-nodes/idle/node = SubResource( 11 )
+nodes/idle/node = SubResource( 12 )
 nodes/idle/position = Vector2( 60, 160 )
-nodes/idle-walk-run/node = SubResource( 10 )
+nodes/idle-walk-run/node = SubResource( 11 )
 nodes/idle-walk-run/position = Vector2( 360, 100 )
-nodes/jump/node = SubResource( 12 )
+nodes/jump/node = SubResource( 13 )
 nodes/jump/position = Vector2( 640, 100 )
-nodes/jumping/node = SubResource( 13 )
+nodes/jumping/node = SubResource( 14 )
 nodes/jumping/position = Vector2( 420, 400 )
-nodes/loose/node = SubResource( 14 )
+nodes/loose/node = SubResource( 15 )
 nodes/loose/position = Vector2( 2120, 140 )
-nodes/output/position = Vector2( 2380, 160 )
-nodes/pick/node = SubResource( 15 )
+nodes/output/position = Vector2( 2520, 160 )
+nodes/pick/node = SubResource( 16 )
 nodes/pick/position = Vector2( 1540, 120 )
-nodes/pickup/node = SubResource( 16 )
+nodes/pickup/node = SubResource( 17 )
 nodes/pickup/position = Vector2( 1340, 400 )
-nodes/punch/node = SubResource( 17 )
+nodes/punch/node = SubResource( 18 )
 nodes/punch/position = Vector2( 1080, 400 )
-nodes/roll/node = SubResource( 18 )
+nodes/roll/node = SubResource( 19 )
 nodes/roll/position = Vector2( 60, 320 )
-nodes/rolling/node = SubResource( 19 )
+nodes/rolling/node = SubResource( 20 )
 nodes/rolling/position = Vector2( -160, 420 )
-nodes/run/node = SubResource( 20 )
+nodes/run/node = SubResource( 21 )
 nodes/run/position = Vector2( -160, 300 )
-nodes/walk/node = SubResource( 21 )
+nodes/walk/node = SubResource( 22 )
 nodes/walk/position = Vector2( 60, 20 )
-node_connections = [ "output", 0, "loose", "die", 0, "pick", "die", 1, "Death", "attack", 0, "attacked", "attack", 1, "punch", "attacked", 0, "jump", "attacked", 1, "damage", "idle-walk-run", 0, "walk", "idle-walk-run", 1, "idle", "idle-walk-run", 2, "roll", "jump", 0, "idle-walk-run", "jump", 1, "jumping", "loose", 0, "die", "loose", 1, "Animation", "pick", 0, "attack", "pick", 1, "pickup", "roll", 0, "run", "roll", 1, "rolling" ]
+nodes/win/node = SubResource( 23 )
+nodes/win/position = Vector2( 2340, 140 )
+node_connections = [ "output", 0, "win", "win", 0, "loose", "win", 1, "Victory", "die", 0, "pick", "die", 1, "Death", "attack", 0, "attacked", "attack", 1, "punch", "idle-walk-run", 0, "walk", "idle-walk-run", 1, "idle", "idle-walk-run", 2, "roll", "attacked", 0, "jump", "attacked", 1, "damage", "pick", 0, "attack", "pick", 1, "pickup", "jump", 0, "idle-walk-run", "jump", 1, "jumping", "roll", 0, "run", "roll", 1, "rolling", "loose", 0, "die", "loose", 1, "Animation" ]
 
 [node name="King" type="KinematicBody" groups=[
 "Player",
@@ -429,7 +438,7 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.97
 shape = SubResource( 3 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 22 )
+tree_root = SubResource( 24 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/attack/active = false
@@ -440,6 +449,7 @@ parameters/jump/active = false
 parameters/loose/blend_amount = 0.0
 parameters/pick/active = false
 parameters/roll/active = false
+parameters/win/active = false
 
 [node name="Run_in_grass" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 21 )
