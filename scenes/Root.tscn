@@ -242,3 +242,4 @@ volume_db = -16.842
 [node name="Star" parent="." instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5542, 2.96331, 11.9911 )
 [connection signal="health_updated" from="King" to="UI" method="_on_King_health_updated"]
+
