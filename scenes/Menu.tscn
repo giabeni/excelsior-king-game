@@ -1,0 +1,196 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://soundtrack/POL-sacred-temple-short.wav" type="AudioStream" id=1]
+[ext_resource path="res://fonts/grobe/grobe-deutschmeister.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scenes/Menu.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 70
+outline_size = 1
+use_filter = true
+extra_spacing_char = 7
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.6, 0.337255, 0.337255, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.592157, 0.294118, 0.294118, 1 )
+corner_radius_top_left = 40
+corner_radius_bottom_right = 40
+shadow_size = 14
+shadow_offset = Vector2( 0.032, 0.074 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.4, 0.2, 0.2, 1 )
+border_color = Color( 0.188235, 0.0627451, 0.0627451, 1 )
+corner_radius_top_left = 40
+corner_radius_bottom_right = 40
+shadow_size = 14
+shadow_offset = Vector2( 0.032, 0.074 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.952941, 0.788235, 0.470588, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.85098, 0.580392, 0.0392157, 1 )
+corner_radius_top_left = 40
+corner_radius_bottom_right = 40
+shadow_color = Color( 0.0313726, 0.00392157, 0.00392157, 0.380392 )
+shadow_size = 14
+shadow_offset = Vector2( 0.032, 0.074 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 41
+outline_size = 2
+outline_color = Color( 0.894118, 0.721569, 0.321569, 1 )
+use_mipmaps = true
+use_filter = true
+extra_spacing_char = 4
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFontData" id=6]
+font_path = "res://fonts/grobe/grobe-deutschmeister.ttf"
+
+[sub_resource type="DynamicFont" id=7]
+size = 30
+font_data = SubResource( 6 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1020.0
+margin_bottom = 600.0
+color = Color( 0.215686, 0.545098, 0.529412, 0.823529 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_right = 1024.0
+margin_bottom = 143.0
+custom_fonts/font = SubResource( 1 )
+text = "EXCELSIOR KING"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button-start" type="Button" parent="."]
+anchor_left = 0.508
+anchor_top = 0.552
+anchor_right = 0.508
+anchor_bottom = 0.552
+margin_left = -141.943
+margin_top = -131.194
+margin_right = 144.057
+margin_bottom = -25.1943
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/normal = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.388235, 0.266667, 0.160784, 1 )
+custom_colors/font_color_hover = Color( 0.682353, 0.478431, 0.0431373, 1 )
+custom_colors/font_color_pressed = Color( 0.0313726, 0.0862745, 0.223529, 1 )
+text = "Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button-credits" type="Button" parent="."]
+anchor_left = 0.508
+anchor_top = 0.552
+anchor_right = 0.508
+anchor_bottom = 0.552
+margin_left = -140.529
+margin_top = 11.6413
+margin_right = 145.471
+margin_bottom = 117.641
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/normal = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.388235, 0.266667, 0.160784, 1 )
+custom_colors/font_color_hover = Color( 0.682353, 0.478431, 0.0431373, 1 )
+custom_colors/font_color_pressed = Color( 0.0313726, 0.0862745, 0.223529, 1 )
+text = "Credits"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+volume_db = -10.969
+autoplay = true
+
+[node name="R2U" type="Label" parent="."]
+margin_left = 787.515
+margin_top = 559.669
+margin_right = 1016.51
+margin_bottom = 641.669
+custom_fonts/font = SubResource( 7 )
+text = "REAL2U GAME JAM"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Giovanni" type="Label" parent="."]
+visible = false
+margin_left = 217.586
+margin_top = 381.478
+margin_right = 446.586
+margin_bottom = 463.478
+custom_fonts/font = SubResource( 7 )
+text = "Giovanni"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nathy" type="Label" parent="."]
+visible = false
+margin_left = 220.415
+margin_top = 234.4
+margin_right = 449.415
+margin_bottom = 316.4
+custom_fonts/font = SubResource( 7 )
+text = "Nathy"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Helder" type="Label" parent="."]
+visible = false
+margin_left = 712.561
+margin_top = 372.993
+margin_right = 941.561
+margin_bottom = 454.993
+custom_fonts/font = SubResource( 7 )
+text = "Helder"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nai" type="Label" parent="."]
+visible = false
+margin_left = 712.561
+margin_top = 232.986
+margin_right = 941.561
+margin_bottom = 314.986
+custom_fonts/font = SubResource( 7 )
+text = "Nai"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="button-start" to="." method="_on_buttonstart_pressed"]
+[connection signal="pressed" from="button-credits" to="." method="_on_buttoncredits_pressed"]
