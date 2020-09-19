@@ -1,11 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/FallingPlatform.gd" type="Script" id=1]
-[ext_resource path="res://tileset/textures/crack.jpeg" type="Texture" id=2]
 [ext_resource path="res://tileset/textures/rock_3_diff_1k.jpg" type="Texture" id=3]
 [ext_resource path="res://tileset/textures/rock_3_rough_1k.jpg" type="Texture" id=4]
 [ext_resource path="res://soundtrack/446118__justinvoke__crack-1.wav" type="AudioStream" id=5]
-
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -17,7 +15,6 @@ metallic_specular = 0.27
 roughness_texture = ExtResource( 4 )
 ao_enabled = true
 ao_light_affect = 1.0
-ao_texture = ExtResource( 2 )
 ao_on_uv2 = false
 ao_texture_channel = 0
 

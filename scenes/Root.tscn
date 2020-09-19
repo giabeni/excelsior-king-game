@@ -70,7 +70,7 @@ input_capture_on_drag = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2824, 3.45588, -3.31378 )
 
 [node name="King" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8672, 2, -10.7419 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -104.382, 81.9288, -10.7419 )
 
 [node name="Target" type="Spatial" parent="King"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.14637, -0.993189 )
