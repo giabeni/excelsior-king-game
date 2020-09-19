@@ -28,6 +28,7 @@ func _process(delta):
 	velocity.y += clamp(delta * GRAVITY, -MAX_VERTICAL_VELOCITY, MAX_VERTICAL_VELOCITY)
 	move_and_slide(velocity, Vector3.UP, false, 1600, deg2rad(80))
 	anim.play("Rat_Walk")
+	_check_deadly_fall(velocity)
 	
 func _rotate_rat(direction):
 	var angle = clamp(atan2(direction.x, direction.z), -2*PI, 2*PI)
@@ -52,3 +53,7 @@ func _on_Timer_timeout():
 		_rotate_rat(direction)
 	#elif random_number < 0.05:
 	#	direction = Vector3.ZERO
+	
+func _check_deadly_fall(velocity):
+	if (velocity.y <= -MAX_VERTICAL_VELOCITY):
+		self.queue_free()
