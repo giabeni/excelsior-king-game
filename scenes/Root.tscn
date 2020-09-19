@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/King.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/SimpleCoin.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://scenes/Test.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/Bolt.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/Star.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/Rat.tscn" type="PackedScene" id=10]
 
 [sub_resource type="ProceduralSky" id=1]
 
@@ -54,6 +55,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 2, 0 )
 
 [node name="Star" parent="Level 1" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 3, 6 )
+
+[node name="Rat" parent="Level 1" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.4725, 2.15432, -3.23308 )
 
 [node name="King" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8672, 2, -10.7419 )
