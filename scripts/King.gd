@@ -8,10 +8,17 @@ const AIR_ACCEL_RES = 0.6
 const DEACCELERATION = 8
 const JUMP_IMPULSE = 16
 const MAX_VERTICAL_VELOCITY = 50
+const DASH_IMPULSE = 30
+const SUPER_JUMP_MULTIPLIER = 1.5
 
 ### STATEFUL PROPERTIES ###
 var velocity = Vector3()
 var is_moving = false
+var has_double_jump = false
+var has_dash = false
+var has_super_jump = false
+var can_double_jump = true
+onready var dash_timer = $DashTimer
 
 ### RELATED NODES ###
 var king: KinematicBody
@@ -98,9 +105,24 @@ func _move_king(delta):
 	velocity.z = hv.z
 	
 	if (Input.is_action_just_pressed("jump") and is_on_floor()):
+		if has_super_jump:
+			velocity.y = JUMP_IMPULSE * SUPER_JUMP_MULTIPLIER
+		else:
+			velocity.y = JUMP_IMPULSE
+		anim_tree.set('parameters/jump/active', true)
+
+	if is_on_floor():
+		can_double_jump = true
+				
+	if (Input.is_action_just_pressed("jump") and !is_on_floor() and has_double_jump and can_double_jump):
 		velocity.y = JUMP_IMPULSE
+		can_double_jump = false
 		anim_tree.set('parameters/jump/active', true)
 		jump_sound.play()
+		
+	if (Input.is_action_just_pressed("walk") and has_dash and dash_timer.is_stopped()):
+		velocity += dir * DASH_IMPULSE
+		dash_timer.start()
 		
 	velocity = move_and_slide(velocity, Vector3(0,1,0))
 	
@@ -109,8 +131,6 @@ func _move_king(delta):
 	
 	if is_moving:
 		_rotate_king(hv)
-		
-		
 	
 	var speed = hv.length() / SPEED
 	anim_tree.set('parameters/idle-walk-run/blend_amount', speed)
@@ -120,12 +140,11 @@ func _rotate_king(hv):
 	
 	var char_rot = king.get_rotation()
 	
-	
 	char_rot.y = angle
 	king.rotation = lerp(king.get_rotation(), char_rot, 0.2)
 	
 func kill():
-	get_tree().get_root().get_node("Root/Level1/BackgroundMusic").stop()
+	get_tree().get_root().get_node("Root/Level 1/BackgroundMusic").stop()
 	anim_tree.set('parameters/die/blend_amount', 1)
 	yield(get_tree().create_timer(2.292), "timeout")
 	get_tree().change_scene("res://scenes/GameOver.tscn")
