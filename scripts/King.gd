@@ -6,7 +6,7 @@ const SPEED = 12
 const ACCELERATION = 5
 const AIR_ACCEL_RES = 0.6
 const DEACCELERATION = 8
-const JUMP_IMPULSE = 16
+const JUMP_IMPULSE = 14
 const MAX_VERTICAL_VELOCITY = 50
 const DASH_IMPULSE = 30
 const SUPER_JUMP_MULTIPLIER = 1.5
@@ -14,16 +14,21 @@ const SUPER_JUMP_MULTIPLIER = 1.5
 ### STATEFUL PROPERTIES ###
 var velocity = Vector3()
 var is_moving = false
+
+### POWER UPS ###
 var has_double_jump = false
-var has_dash = false
+var can_double_jump = false
 var has_super_jump = false
-var can_double_jump = true
+var has_dash = true
 onready var dash_timer = $DashTimer
+
 
 ### RELATED NODES ###
 var king: KinematicBody
 var camera
 var anim_tree: AnimationTree
+
+### SOUNDS ###
 var anim_player: AnimationPlayer
 var run_in_grass: AudioStreamPlayer
 var land_in_grass: AudioStreamPlayer
@@ -121,7 +126,7 @@ func _move_king(delta):
 		anim_tree.set('parameters/jump/active', true)
 		jump_sound.play()
 		
-	if (Input.is_action_just_pressed("walk") and has_dash and dash_timer.is_stopped()):
+	if (Input.is_action_just_pressed("dash") and has_dash and dash_timer.is_stopped()):
 		velocity += dir * DASH_IMPULSE
 		dash_timer.start()
 		
@@ -144,7 +149,7 @@ func _rotate_king(hv):
 	char_rot.y = angle
 	king.rotation = lerp(king.get_rotation(), char_rot, 0.2)
 	
-func kill():
+func die():
 	get_tree().get_root().get_node("Root/Level 1/BackgroundMusic").stop()
 	anim_tree.set('parameters/die/blend_amount', 1)
 	yield(get_tree().create_timer(2.292), "timeout")
@@ -156,7 +161,7 @@ func _check_deadly_fall():
 		anim_tree.set('parameters/idle-walk-run/blend_amount', 0)
 
 	if (velocity.y <= -MAX_VERTICAL_VELOCITY):
-		kill()
+		die()
 		
 	
 func damage(amount):
@@ -173,7 +178,7 @@ func _set_health(value):
 	if health != prev_health:
 		emit_signal("health_updated", health)
 		if health == 0:
-			kill()
+			die()
 			emit_signal("killed")
 
 
