@@ -1661,18 +1661,25 @@ transform = Transform( 0.395492, 0, 0, 0, 0.395492, 0, 0, 0, 0.395492, 0.225352,
 shape = SubResource( 9 )
 
 [node name="Damage" type="Area" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape" type="CollisionShape" parent="Damage"]
 transform = Transform( 0.593238, 0, 0, 0, 0.593238, 0, 0, 0, 0.593238, 0, 0.385951, 0.355452 )
 shape = SubResource( 10 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.25
+wait_time = 0.5
 autostart = true
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 14 )
 anim_player = NodePath("../AnimationPlayer")
 parameters/idle-walk/blend_amount = 0.0
+
+[node name="VisibilityNotifier" type="VisibilityNotifier" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.21589, 0 )
+aabb = AABB( -1, -1, -2.06464, 2, 2, 4.12929 )
 [connection signal="body_entered" from="Damage" to="." method="_on_Damage_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="camera_entered" from="VisibilityNotifier" to="." method="_on_VisibilityNotifier_camera_entered"]

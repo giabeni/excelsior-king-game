@@ -302,6 +302,8 @@ transform = Transform( 1, 0, 0, 0, 0.337572, 0.9413, 0, -0.9413, 0.337572, 0, 2.
 shape = SubResource( 4 )
 
 [node name="Area" type="Area" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0 )
