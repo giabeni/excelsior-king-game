@@ -146,8 +146,12 @@ func _rotate_king(hv):
 	
 	var char_rot = king.get_rotation()
 	
-	char_rot.y = angle
-	king.rotation = lerp(king.get_rotation(), char_rot, 0.2)
+	var from_rot = char_rot.y
+	var to_rot = angle
+	var new_rot = lerp_angle(from_rot, to_rot, 0.2)
+
+	char_rot.y = new_rot
+	king.rotation = char_rot
 	
 func die():
 	get_tree().get_root().get_node("Root/Level 1/BackgroundMusic").stop()
