@@ -3,7 +3,7 @@ extends KinematicBody
 const ACCEL = 0.5
 
 var player = null
-var speed = 12
+var speed = 8
 var once = 0
 var bat_velocity = Vector3.ZERO
 var bat_position = Vector3()
@@ -44,6 +44,7 @@ func _process(delta):
 func _on_Area_body_entered(body):
 	if body.is_in_group("Player"):
 		print("\n\nPLAYER HAS BEEN SEEN BY BAT!!!\n")
+		yield(get_tree().create_timer(1), "timeout")
 		anim.play("Bat_Attack")		
 		yield(get_tree().create_timer(2), "timeout")
 		print("Bat is about to fly\n")

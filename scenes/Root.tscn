@@ -56,17 +56,11 @@ environment = SubResource( 2 )
 
 [node name="Level 1" parent="." instance=ExtResource( 7 )]
 
-[node name="Spike" parent="Level 1" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 0.999598, -0.0283404, 0, 0.0283404, 0.999598, -50.5862, 44.0139, 40.6275 )
-input_capture_on_drag = true
+[node name="Bolt" parent="Level 1" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 2, 0 )
 
-[node name="Spike2" parent="Level 1" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 0.999598, -0.0283404, 0, 0.0283404, 0.999598, -51.3921, 44.0139, 40.6275 )
-input_capture_on_drag = true
-
-[node name="Spike3" parent="Level 1" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 0.999598, -0.0283404, 0, 0.0283404, 0.999598, -49.8389, 44.0139, 40.6275 )
-input_capture_on_drag = true
+[node name="Star" parent="Level 1" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 3, 6 )
 
 [node name="Spike4" parent="Level 1" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 0.999598, -0.0283404, 0, 0.0283404, 0.999598, 10.309, 2, 3.34447 )
@@ -74,12 +68,6 @@ input_capture_on_drag = true
 
 [node name="SimpleCoin" parent="Level 1" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2824, 3.45588, -3.31378 )
-
-[node name="Bolt" parent="Level 1" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 2, 0 )
-
-[node name="Star" parent="Level 1" instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 3, 6 )
 
 [node name="King" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8672, 2, -10.7419 )
