@@ -26,15 +26,16 @@ var velocity = Vector3()
 onready var previous_position = get_global_transform()[3]
 
 func _process(delta):
-	if is_on_floor():
+	if $RayCast.is_colliding():
+		var body = $RayCast.get_collider()
+		if not body.is_in_group("Player"):
+			direction = -Vector3.FORWARD
+			_rotate_rat(direction)
+	else:
 		self.transform[3] = previous_position + (direction * speed * delta)
 		previous_position = self.transform[3]
 		anim.play("Rat_Walk")
 		_check_deadly_fall(velocity)
-	else:
-		var velocity = direction * speed * (1 + ACCEL * delta)
-		velocity.y += clamp(delta * GRAVITY, -MAX_VERTICAL_VELOCITY, MAX_VERTICAL_VELOCITY)
-		move_and_slide(velocity, Vector3.UP, false, 1600, deg2rad(80))
 
 func _rotate_rat(direction):
 	var angle = clamp(atan2(direction.x, direction.z), -2*PI, 2*PI)
