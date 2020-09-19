@@ -99,8 +99,11 @@ one_shot = true
 one_shot = true
 
 [node name="UI" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 39.0
+margin_top = 23.0
+margin_right = 79.0
+margin_bottom = 63.0
+rect_scale = Vector2( 0.776147, 0.776147 )
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
