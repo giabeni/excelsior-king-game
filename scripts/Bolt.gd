@@ -6,4 +6,5 @@ func _on_Bolt_body_entered(body):
 		body.has_dash = true
 		global.has_dash = true
 		get_tree().get_root().get_node("Root/Level 1/PowerUpSound").play()
+		get_tree().get_root().get_node("Root").power_up("Label2")
 		self.queue_free()
