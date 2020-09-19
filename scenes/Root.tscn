@@ -168,6 +168,38 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="PowerUpUI" type="Control" parent="."]
+visible = false
+margin_left = 134.137
+margin_top = 21.8108
+margin_right = 174.137
+margin_bottom = 61.8108
+rect_scale = Vector2( 0.776147, 0.776147 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="PowerUpUI"]
+margin_left = -116.129
+margin_top = 610.532
+margin_right = 1086.87
+margin_bottom = 721.532
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="PowerUpUI"]
+margin_left = -76.6096
+margin_top = 646.586
+margin_right = 418.39
+margin_bottom = 685.586
+custom_fonts/font = SubResource( 4 )
+text = "You feel your jump more powerful. Press SPACE twice to double jump."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="IntroUI" type="Control" parent="."]
 margin_left = 134.137
 margin_top = 21.8108

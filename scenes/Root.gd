@@ -15,3 +15,8 @@ func _ready():
 		get_node("IntroUI").hide()
 	else:
 		get_node("IntroUI").hide()
+
+func power_up():
+	get_node("PowerUpUI").show()
+	yield(get_tree().create_timer(5), "timeout")
+	get_node("PowerUpUI").hide()
