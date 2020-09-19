@@ -211,6 +211,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Part3" type="Label" parent="IntroUI"]
+visible = false
+margin_left = -77.0
+margin_top = 647.0
+margin_right = 1055.0
+margin_bottom = 686.0
+custom_fonts/font = SubResource( 4 )
+text = "WASD: Move                                                                                                                                                                        Space: Jump           "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, -0.853378, 0.521293, 0, -0.521293, -0.853378, 14.3497, 33.2025, -296.237 )
 light_color = Color( 0.956863, 0.639216, 0.639216, 1 )
