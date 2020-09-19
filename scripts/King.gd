@@ -59,6 +59,9 @@ func _ready():
 	jump_sound = get_node("Jump")
 	king = get_node(".")
 	king.set_translation(global.spawn_point)
+	has_double_jump = global.has_double_jump
+	has_super_jump = global.has_super_jump
+	has_dash = global.has_dash
 
 func _process(_delta):
 	pass
