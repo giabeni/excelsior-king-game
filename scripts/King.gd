@@ -16,7 +16,7 @@ var velocity = Vector3()
 var is_moving = false
 
 ### POWER UPS ###
-var has_double_jump = false
+var has_double_jump = true
 var can_double_jump = false
 var has_super_jump = false
 var has_dash = true
