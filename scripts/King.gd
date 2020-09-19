@@ -12,6 +12,8 @@ const MAX_VERTICAL_VELOCITY = 50
 ### STATEFUL PROPERTIES ###
 var velocity = Vector3()
 var is_moving = false
+var has_double_jump = false
+var can_double_jump = true
 
 ### RELATED NODES ###
 var king: KinematicBody
@@ -84,6 +86,14 @@ func _move_king(delta):
 	if (Input.is_action_just_pressed("jump") and is_on_floor()):
 		velocity.y = JUMP_IMPULSE
 		anim_tree.set('parameters/jump/active', true)
+
+	if is_on_floor():
+		can_double_jump = true
+				
+	if (Input.is_action_just_pressed("jump") and !is_on_floor() and has_double_jump and can_double_jump):
+		velocity.y = JUMP_IMPULSE
+		can_double_jump = false
+		anim_tree.set('parameters/jump/active', true)
 		
 	velocity = move_and_slide(velocity, Vector3(0,1,0))
 	
@@ -92,8 +102,6 @@ func _move_king(delta):
 	
 	if is_moving:
 		_rotate_king(hv)
-		
-		
 	
 	var speed = hv.length() / SPEED
 	anim_tree.set('parameters/idle-walk-run/blend_amount', speed)
@@ -102,7 +110,6 @@ func _rotate_king(hv):
 	var angle = clamp(atan2(hv.x, hv.z), -2*PI, 2*PI)
 	
 	var char_rot = king.get_rotation()
-	
 	
 	char_rot.y = angle
 	king.rotation = lerp(king.get_rotation(), char_rot, 0.2)
