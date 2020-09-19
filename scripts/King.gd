@@ -22,6 +22,7 @@ var run_in_grass: AudioStreamPlayer
 var land_in_grass: AudioStreamPlayer
 var run_in_cave: AudioStreamPlayer
 var land_in_cave: AudioStreamPlayer
+var damage_sound: AudioStreamPlayer
 
 ### HEALTH VARIABLES ###
 export (float) var max_health = 3
@@ -39,6 +40,7 @@ func _ready():
 	run_in_grass = get_node("Run_in_grass")
 	run_in_cave = get_node("Run_in_cave")
 	land_in_grass = get_node("Land_in_grass")
+	damage_sound = get_node("Damage")
 	king = get_node(".")
 
 func _process(_delta):
@@ -136,6 +138,7 @@ func _check_deadly_fall():
 	
 func damage(amount):
 	if invulnerability_timer.is_stopped():
+		damage_sound.play()
 		invulnerability_timer.start()
 		_set_health(health - amount)
 		blink()
