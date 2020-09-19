@@ -11,9 +11,13 @@ func _process(delta):
 	if $RayCast.is_colliding():
 		var thing = $RayCast.get_collider()
 		if thing.is_in_group("Player"):
-			falling = true
+			$AnimationPlayer.play("shake")
 
 
 func _on_Area_body_entered(body):
 	if body.has_method("damage"):
 		body.damage(1)
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	falling = true
