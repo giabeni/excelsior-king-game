@@ -31,14 +31,13 @@ func _process(delta):
 		rotate_y(rotation + PI / 2)
 		rotate_x(PI / 2 + 1)
 		anim.play("Bat_Flying")
-		
-	if (player and once):
+		bat_velocity = move_and_slide(bat_velocity, Vector3.UP, false, 1600, deg2rad(80))
+	elif (player and once):
 		bat_velocity = bat_velocity * (1 + ACCEL * delta)
 		print ("BAT POS", bat.global_transform.origin)
 		print ("BAT SPEED", speed)
 		print ("BAT VEL", bat_velocity)
-		
-	bat_velocity = move_and_slide(bat_velocity, Vector3.UP, false, 1600, deg2rad(80))
+		bat_velocity = move_and_slide(bat_velocity, Vector3.UP, false, 1600, deg2rad(80))
 
 
 func _on_Area_body_entered(body):
