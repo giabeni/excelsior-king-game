@@ -110,6 +110,7 @@ func _move_king(delta):
 		else:
 			velocity.y = JUMP_IMPULSE
 		anim_tree.set('parameters/jump/active', true)
+		jump_sound.play()
 
 	if is_on_floor():
 		can_double_jump = true
@@ -194,11 +195,12 @@ func play_running_sound():
 	if is_on_floor() and is_moving:
 		for i in get_slide_count():
 			var collision = get_slide_collision(i)
-			if collision.collider.name == "GridMap" and !running_in_grass:
+			print(collision.collider.name)
+			if collision.collider.name == "Grass" and !running_in_grass:
 				run_in_cave.stop()
 				run_in_grass.play()
 				running_in_grass = true
-			elif collision.collider.name == "GridMap2" and !running_in_cave:
+			elif collision.collider.name == "Rock" and !running_in_cave:
 				run_in_grass.stop()
 				run_in_cave.play()
 				running_in_cave = true
