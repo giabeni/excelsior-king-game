@@ -19,6 +19,10 @@ config/name="Excelsior-king-game"
 run/main_scene="res://scenes/Root.tscn"
 config/icon="res://icon.png"
 
+[debug]
+
+settings/stdout/print_fps=true
+
 [input]
 
 move_fw={

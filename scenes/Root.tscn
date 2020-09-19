@@ -154,6 +154,7 @@ light_specular = 0.55
 shadow_enabled = true
 shadow_bias = 0.27
 shadow_contact = 2.0
+directional_shadow_mode = 0
 directional_shadow_split_1 = 0.042
 directional_shadow_split_2 = 0.241
 directional_shadow_split_3 = 0.384

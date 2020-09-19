@@ -20,7 +20,7 @@ func _ready():
 	bat_position = bat.global_transform.origin
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _process(delta):
 	if player and !once:
 		once = 1
 		bat_velocity = bat_position.direction_to(player_position) * speed
