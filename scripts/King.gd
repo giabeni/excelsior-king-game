@@ -1,5 +1,7 @@
 extends KinematicBody
 
+onready var global = get_node("/root/Global")
+
 ### GLOBAL CONSTANTS ###
 const GRAVITY = -26
 const SPEED = 12
@@ -19,7 +21,7 @@ var is_moving = false
 var has_double_jump = false
 var can_double_jump = false
 var has_super_jump = false
-var has_dash = true
+var has_dash = false
 onready var dash_timer = $DashTimer
 
 
@@ -56,6 +58,7 @@ func _ready():
 	damage_sound = get_node("Damage")
 	jump_sound = get_node("Jump")
 	king = get_node(".")
+	king.set_translation(global.spawn_point)
 
 func _process(_delta):
 	pass
