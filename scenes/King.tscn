@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://models/King/Skin.material" type="Material" id=1]
 [ext_resource path="res://models/King/Gold.material" type="Material" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://models/King/animations/Walking-on-Gravel--Medium--www.fesliyanstudios.com.wav" type="AudioStream" id=23]
 [ext_resource path="res://soundtrack/zapsplat_impacts_body_person_heavy_005_43768.wav" type="AudioStream" id=24]
 [ext_resource path="res://soundtrack/zapsplat_cartoon_frog_jump_26526.wav" type="AudioStream" id=25]
+[ext_resource path="res://soundtrack/18180_1464359326.wav" type="AudioStream" id=26]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Body"
@@ -231,7 +232,7 @@ animation = "Run"
 animation = "Walk"
 
 [sub_resource type="AnimationNodeBlendTree" id=22]
-graph_offset = Vector2( -247.209, 47.5 )
+graph_offset = Vector2( -29.142, 282 )
 nodes/Animation/node = SubResource( 4 )
 nodes/Animation/position = Vector2( 1900, 400 )
 nodes/Death/node = SubResource( 5 )
@@ -269,7 +270,7 @@ nodes/run/node = SubResource( 20 )
 nodes/run/position = Vector2( -160, 300 )
 nodes/walk/node = SubResource( 21 )
 nodes/walk/position = Vector2( 60, 20 )
-node_connections = [ "output", 0, "loose", "jump", 0, "idle-walk-run", "jump", 1, "jumping", "loose", 0, "die", "loose", 1, "Animation", "attack", 0, "attacked", "attack", 1, "punch", "idle-walk-run", 0, "walk", "idle-walk-run", 1, "idle", "idle-walk-run", 2, "roll", "pick", 0, "attack", "pick", 1, "pickup", "roll", 0, "run", "roll", 1, "rolling", "attacked", 0, "jump", "attacked", 1, "damage", "die", 0, "pick", "die", 1, "Death" ]
+node_connections = [ "output", 0, "loose", "attack", 0, "attacked", "attack", 1, "punch", "attacked", 0, "jump", "attacked", 1, "damage", "idle-walk-run", 0, "walk", "idle-walk-run", 1, "idle", "idle-walk-run", 2, "roll", "jump", 0, "idle-walk-run", "jump", 1, "jumping", "loose", 0, "die", "loose", 1, "Animation", "pick", 0, "attack", "pick", 1, "pickup", "roll", 0, "run", "roll", 1, "rolling", "die", 0, "pick", "die", 1, "Death" ]
 
 [node name="King" type="KinematicBody" groups=[
 "Player",
@@ -432,7 +433,7 @@ active = true
 parameters/attack/active = false
 parameters/attacked/active = false
 parameters/die/blend_amount = 0.0
-parameters/idle-walk-run/blend_amount = 0.1
+parameters/idle-walk-run/blend_amount = -0.02
 parameters/jump/active = false
 parameters/loose/blend_amount = 0.0
 parameters/pick/active = false
@@ -453,6 +454,10 @@ stream = ExtResource( 24 )
 
 [node name="Jump" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 25 )
+
+[node name="Death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 26 )
+volume_db = 3.817
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]
 [connection signal="finished" from="Run_in_grass" to="." method="_on_Run_in_grass_finished"]
 [connection signal="finished" from="Run_in_cave" to="." method="_on_Run_in_cave_finished"]
