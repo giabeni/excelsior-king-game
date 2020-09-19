@@ -1,12 +1,12 @@
 extends KinematicBody
 
 ### GLOBAL CONSTANTS ###
-const GRAVITY = -25
+const GRAVITY = -26
 const SPEED = 12
 const ACCELERATION = 5
 const AIR_ACCEL_RES = 0.6
 const DEACCELERATION = 8
-const JUMP_IMPULSE = 14
+const JUMP_IMPULSE = 16
 const MAX_VERTICAL_VELOCITY = 50
 const DASH_IMPULSE = 30
 const SUPER_JUMP_MULTIPLIER = 1.5
@@ -200,7 +200,6 @@ func play_running_sound():
 	if is_on_floor() and is_moving:
 		for i in get_slide_count():
 			var collision = get_slide_collision(i)
-			print(collision.collider.name)
 			if collision.collider.name == "Grass" and !running_in_grass:
 				run_in_cave.stop()
 				run_in_grass.play()

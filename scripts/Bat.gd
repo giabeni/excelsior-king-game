@@ -1,12 +1,9 @@
 extends KinematicBody
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+const ACCEL = 1
 
 var player = null
-var speed = 20
+var speed = 25
 var once = 0
 var bat_velocity = Vector3.ZERO
 var bat_position = Vector3()
@@ -23,10 +20,15 @@ func _ready():
 	bat_position = bat.global_transform.origin
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	if player and !once:
 		once = 1
 		bat_velocity = bat_position.direction_to(player_position) * speed
+		
+		print ("BAT POS", bat.global_transform.origin)
+		speed = speed + (ACCEL * delta)
+		print ("BAT SPEED", speed)
+		print ("BAT VEL", bat_velocity)
 		timer.start()
 		var rotation = (bat_position * Vector3(1,0,1)).angle_to(player_position * Vector3(1,0,1))
 		rotate_y(rotation + PI / 2)
@@ -37,6 +39,7 @@ func _process(delta):
 
 func _on_Area_body_entered(body):
 	if body.is_in_group("Player"):
+		print("\n\nPLAYER HAS BEEN SEEN BY BAT!!!\n\n")
 		player = body
 		player_position = body.global_transform.origin
 
