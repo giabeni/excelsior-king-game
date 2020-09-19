@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/POL-sacred-temple-short.wav-572add621fc11427891a01c25fd674e3.sample"
+
+[deps]
+
+source_file="res://soundtrack/POL-sacred-temple-short.wav"
+dest_files=[ "res://.import/POL-sacred-temple-short.wav-572add621fc11427891a01c25fd674e3.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
