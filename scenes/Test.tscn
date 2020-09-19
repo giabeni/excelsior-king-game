@@ -1,4 +1,5 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
+
 
 [ext_resource path="res://scenes/Bat.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/interactables/FallingPlatform.tscn" type="PackedScene" id=2]
@@ -17,6 +18,7 @@
 [ext_resource path="res://scenes/Spike.tscn" type="PackedScene" id=15]
 [ext_resource path="res://tileset/outside.meshlib" type="MeshLibrary" id=16]
 [ext_resource path="res://scenes/Bolt.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/Star.tscn" type="PackedScene" id=18]
 
 [node name="Level1" type="Spatial"]
 
@@ -157,6 +159,23 @@ light_energy = 4.27
 
 [node name="SimpleCoin" parent="PowerUp" instance=ExtResource( 12 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0.739914, 0.0733337, 0.0448837 )
+
+[node name="PowerUp2" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.8729, 68.6803, -18.9814 )
+light_energy = 4.27
+
+[node name="Star" parent="PowerUp2" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0083847, -1.3364, -1.09306 )
+
+[node name="PowerUp3" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -113.171, 116.484, -2.78225 )
+light_energy = 5.2
+light_specular = 0.96
+omni_range = 6.1
+omni_attenuation = 0.901251
+
+[node name="Bolt" parent="PowerUp3" instance=ExtResource( 18 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -0.171196, -2.41607, -1.4544 )
 
 [node name="Interactables" type="Spatial" parent="."]
 
