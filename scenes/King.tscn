@@ -270,11 +270,13 @@ nodes/run/node = SubResource( 20 )
 nodes/run/position = Vector2( -160, 300 )
 nodes/walk/node = SubResource( 21 )
 nodes/walk/position = Vector2( 60, 20 )
-node_connections = [ "output", 0, "loose", "pick", 0, "attack", "pick", 1, "pickup", "loose", 0, "die", "loose", 1, "Animation", "roll", 0, "run", "roll", 1, "rolling", "attack", 0, "attacked", "attack", 1, "punch", "attacked", 0, "jump", "attacked", 1, "damage", "idle-walk-run", 0, "walk", "idle-walk-run", 1, "idle", "idle-walk-run", 2, "roll", "jump", 0, "idle-walk-run", "jump", 1, "jumping", "die", 0, "pick", "die", 1, "Death" ]
+node_connections = [ "output", 0, "loose", "die", 0, "pick", "die", 1, "Death", "attack", 0, "attacked", "attack", 1, "punch", "attacked", 0, "jump", "attacked", 1, "damage", "idle-walk-run", 0, "walk", "idle-walk-run", 1, "idle", "idle-walk-run", 2, "roll", "jump", 0, "idle-walk-run", "jump", 1, "jumping", "loose", 0, "die", "loose", 1, "Animation", "pick", 0, "attack", "pick", 1, "pickup", "roll", 0, "run", "roll", 1, "rolling" ]
 
 [node name="King" type="KinematicBody" groups=[
 "Player",
 ]]
+collision_layer = 3
+collision_mask = 2147483649
 script = ExtResource( 20 )
 
 [node name="CharacterArmature" type="Spatial" parent="."]

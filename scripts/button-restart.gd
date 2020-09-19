@@ -1,9 +1,12 @@
 extends Button
 
-# Called when the node enters the scene tree for the first time.
+var label4: Label
+var label5: Label
+var label6: Label
+var label7: Label
+
 func _ready():
-	pass # Replace with function body.
+	pass
 
 func _on_button_restart_pressed():
-	get_tree().change_scene("res://scenes/Root.tscn")
-	
+	get_tree().change_scene("res://scenes/Menu.tscn")
