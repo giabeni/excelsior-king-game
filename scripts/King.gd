@@ -23,6 +23,7 @@ var land_in_grass: AudioStreamPlayer
 var run_in_cave: AudioStreamPlayer
 var land_in_cave: AudioStreamPlayer
 var damage_sound: AudioStreamPlayer
+var jump_sound: AudioStreamPlayer
 
 ### HEALTH VARIABLES ###
 export (float) var max_health = 3
@@ -41,6 +42,7 @@ func _ready():
 	run_in_cave = get_node("Run_in_cave")
 	land_in_grass = get_node("Land_in_grass")
 	damage_sound = get_node("Damage")
+	jump_sound = get_node("Jump")
 	king = get_node(".")
 
 func _process(_delta):
@@ -98,6 +100,7 @@ func _move_king(delta):
 	if (Input.is_action_just_pressed("jump") and is_on_floor()):
 		velocity.y = JUMP_IMPULSE
 		anim_tree.set('parameters/jump/active', true)
+		jump_sound.play()
 		
 	velocity = move_and_slide(velocity, Vector3(0,1,0))
 	
