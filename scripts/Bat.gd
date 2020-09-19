@@ -18,6 +18,7 @@ func _ready():
 	anim = get_node("AnimationPlayer")
 	bat = get_node(".")
 	bat_position = bat.global_transform.origin
+	set_process(false)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -61,3 +62,7 @@ func _on_Timer_timeout():
 func _on_damage_body_entered(body):
 	if body.has_method("damage"):
 		body.damage(1)
+
+
+func _on_VisibilityNotifier_camera_entered(camera):
+	set_process(true)
