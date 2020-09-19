@@ -231,7 +231,7 @@ animation = "Run"
 animation = "Walk"
 
 [sub_resource type="AnimationNodeBlendTree" id=22]
-graph_offset = Vector2( -247.209, -18 )
+graph_offset = Vector2( -247.209, 47.5 )
 nodes/Animation/node = SubResource( 4 )
 nodes/Animation/position = Vector2( 1900, 400 )
 nodes/Death/node = SubResource( 5 )
@@ -269,7 +269,7 @@ nodes/run/node = SubResource( 20 )
 nodes/run/position = Vector2( -160, 300 )
 nodes/walk/node = SubResource( 21 )
 nodes/walk/position = Vector2( 60, 20 )
-node_connections = [ "output", 0, "loose", "attack", 0, "attacked", "attack", 1, "punch", "attacked", 0, "jump", "attacked", 1, "damage", "die", 0, "pick", "die", 1, "Death", "idle-walk-run", 0, "walk", "idle-walk-run", 1, "idle", "idle-walk-run", 2, "roll", "jump", 0, "idle-walk-run", "jump", 1, "jumping", "loose", 0, "die", "loose", 1, "Animation", "pick", 0, "attack", "pick", 1, "pickup", "roll", 0, "run", "roll", 1, "rolling" ]
+node_connections = [ "output", 0, "loose", "jump", 0, "idle-walk-run", "jump", 1, "jumping", "loose", 0, "die", "loose", 1, "Animation", "attack", 0, "attacked", "attack", 1, "punch", "idle-walk-run", 0, "walk", "idle-walk-run", 1, "idle", "idle-walk-run", 2, "roll", "pick", 0, "attack", "pick", 1, "pickup", "roll", 0, "run", "roll", 1, "rolling", "attacked", 0, "jump", "attacked", 1, "damage", "die", 0, "pick", "die", 1, "Death" ]
 
 [node name="King" type="KinematicBody" groups=[
 "Player",
@@ -432,7 +432,7 @@ active = true
 parameters/attack/active = false
 parameters/attacked/active = false
 parameters/die/blend_amount = 0.0
-parameters/idle-walk-run/blend_amount = -0.02
+parameters/idle-walk-run/blend_amount = 0.1
 parameters/jump/active = false
 parameters/loose/blend_amount = 0.0
 parameters/pick/active = false
