@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://models/King/Skin.material" type="Material" id=1]
 [ext_resource path="res://models/King/Gold.material" type="Material" id=2]
@@ -231,8 +231,13 @@ animation = "Run"
 [sub_resource type="AnimationNodeAnimation" id=21]
 animation = "Walk"
 
-[sub_resource type="AnimationNodeBlendTree" id=22]
-graph_offset = Vector2( -29.142, 282 )
+[sub_resource type="AnimationNodeAnimation" id=22]
+animation = "Victory"
+
+[sub_resource type="AnimationNodeOneShot" id=23]
+
+[sub_resource type="AnimationNodeBlendTree" id=24]
+graph_offset = Vector2( 1959.59, 16.5 )
 nodes/Animation/node = SubResource( 4 )
 nodes/Animation/position = Vector2( 1900, 400 )
 nodes/Death/node = SubResource( 5 )
@@ -255,7 +260,7 @@ nodes/jumping/node = SubResource( 13 )
 nodes/jumping/position = Vector2( 420, 400 )
 nodes/loose/node = SubResource( 14 )
 nodes/loose/position = Vector2( 2120, 140 )
-nodes/output/position = Vector2( 2380, 160 )
+nodes/output/position = Vector2( 2600, 160 )
 nodes/pick/node = SubResource( 15 )
 nodes/pick/position = Vector2( 1540, 120 )
 nodes/pickup/node = SubResource( 16 )
@@ -270,7 +275,11 @@ nodes/run/node = SubResource( 20 )
 nodes/run/position = Vector2( -160, 300 )
 nodes/walk/node = SubResource( 21 )
 nodes/walk/position = Vector2( 60, 20 )
-node_connections = [ "output", 0, "loose", "die", 0, "pick", "die", 1, "Death", "attack", 0, "attacked", "attack", 1, "punch", "attacked", 0, "jump", "attacked", 1, "damage", "idle-walk-run", 0, "walk", "idle-walk-run", 1, "idle", "idle-walk-run", 2, "roll", "jump", 0, "idle-walk-run", "jump", 1, "jumping", "loose", 0, "die", "loose", 1, "Animation", "pick", 0, "attack", "pick", 1, "pickup", "roll", 0, "run", "roll", 1, "rolling" ]
+nodes/win/node = SubResource( 23 )
+nodes/win/position = Vector2( 2360, 140 )
+"nodes/win 2/node" = SubResource( 22 )
+"nodes/win 2/position" = Vector2( 2140, 380 )
+node_connections = [ "output", 0, "win", "win", 0, "loose", "win", 1, "win 2", "die", 0, "pick", "die", 1, "Death", "attack", 0, "attacked", "attack", 1, "punch", "idle-walk-run", 0, "walk", "idle-walk-run", 1, "idle", "idle-walk-run", 2, "roll", "roll", 0, "run", "roll", 1, "rolling", "loose", 0, "die", "loose", 1, "Animation", "pick", 0, "attack", "pick", 1, "pickup", "attacked", 0, "jump", "attacked", 1, "damage", "jump", 0, "idle-walk-run", "jump", 1, "jumping" ]
 
 [node name="King" type="KinematicBody" groups=[
 "Player",
@@ -429,7 +438,7 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.97
 shape = SubResource( 3 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 22 )
+tree_root = SubResource( 24 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/attack/active = false
@@ -440,6 +449,7 @@ parameters/jump/active = false
 parameters/loose/blend_amount = 0.0
 parameters/pick/active = false
 parameters/roll/active = false
+parameters/win/active = false
 
 [node name="Run_in_grass" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 21 )
