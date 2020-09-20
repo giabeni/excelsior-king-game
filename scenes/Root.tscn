@@ -190,6 +190,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="PowerUpUI"]
+visible = false
 margin_left = -76.6096
 margin_top = 646.586
 margin_right = 418.39
@@ -200,7 +201,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label2" type="Label" parent="PowerUpUI"]
+visible = false
+margin_left = -76.6096
+margin_top = 646.586
+margin_right = 418.39
+margin_bottom = 685.586
+custom_fonts/font = SubResource( 4 )
+text = "You feel your body became faster. Press SHIFT to dash."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="PowerUpUI"]
+visible = false
+margin_left = -76.6096
+margin_top = 646.586
+margin_right = 418.39
+margin_bottom = 685.586
+custom_fonts/font = SubResource( 4 )
+text = "You can now achieve even greater heights. Press SPACE to SUPER jump"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="IntroUI" type="Control" parent="."]
+visible = false
 margin_left = 134.137
 margin_top = 21.8108
 margin_right = 174.137
