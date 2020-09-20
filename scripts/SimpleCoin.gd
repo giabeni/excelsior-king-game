@@ -6,5 +6,5 @@ func _on_SimpleCoin_body_entered(body):
 		body.has_double_jump = true
 		global.has_double_jump = true
 		get_tree().get_root().get_node("Root/Level 1/PowerUpSound").play()
-		get_tree().get_root().get_node("Root").power_up("Label")
+		get_tree().get_root().get_node("Root").power_up("You feel your jump more powerful. Press SPACE twice to double jump.")
 		self.queue_free()

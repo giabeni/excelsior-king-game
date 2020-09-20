@@ -33,6 +33,7 @@ func _process(delta):
 		anim.play("Bat_Flying")
 		bat_velocity = move_and_slide(bat_velocity, Vector3.UP, false, 1600, deg2rad(80))
 	elif (player and once):
+		look_at(player_position, Vector3.UP)
 		bat_velocity = bat_velocity * (1 + ACCEL * delta)
 		bat_velocity = move_and_slide(bat_velocity, Vector3.UP, false, 1600, deg2rad(80))
 

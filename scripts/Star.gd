@@ -6,5 +6,5 @@ func _on_Star_body_entered(body):
 		body.has_super_jump = true
 		global.has_super_jump = true
 		get_tree().get_root().get_node("Root/Level 1/PowerUpSound").play()
-		get_tree().get_root().get_node("Root").power_up("Label3")
+		get_tree().get_root().get_node("Root").power_up("You can now achieve even greater heights. Press SPACE to SUPER jump")
 		self.queue_free()

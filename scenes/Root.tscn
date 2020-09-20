@@ -190,7 +190,6 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="PowerUpUI"]
-visible = false
 margin_left = -76.6096
 margin_top = 646.586
 margin_right = 418.39
@@ -285,6 +284,8 @@ __meta__ = {
 transform = Transform( 1, 0, 0, 0, -0.853378, 0.521293, 0, -0.521293, -0.853378, 14.3497, 33.2025, -296.237 )
 light_color = Color( 0.956863, 0.639216, 0.639216, 1 )
 light_specular = 0.55
+light_bake_mode = 2
+shadow_enabled = true
 shadow_bias = 0.27
 shadow_contact = 2.0
 directional_shadow_mode = 0

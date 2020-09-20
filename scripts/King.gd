@@ -160,8 +160,8 @@ func _rotate_king(hv):
 	king.rotation = char_rot
 	
 func die():
-	get_tree().get_root().get_node("Root/Level 1/BackgroundMusic").stop()
 	get_node("Death").play()
+	get_tree().get_root().get_node("Root/Level 1/BackgroundMusic").stop()
 	anim_tree.set('parameters/die/blend_amount', 1)
 	yield(get_tree().create_timer(2.292), "timeout")
 	get_tree().change_scene("res://scenes/GameOver.tscn")

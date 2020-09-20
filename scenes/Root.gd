@@ -16,7 +16,8 @@ func _ready():
 	else:
 		get_node("IntroUI").hide()
 
-func power_up():
+func power_up(label: String):
 	get_node("PowerUpUI").show()
+	$PowerUpUI/Label.text = label
 	yield(get_tree().create_timer(5), "timeout")
 	get_node("PowerUpUI").hide()
