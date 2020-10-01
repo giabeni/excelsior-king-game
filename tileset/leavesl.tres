@@ -1,0 +1,11 @@
+[gd_resource type="SpatialMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://tileset/textures/Grass_002_COLOR(1).jpg" type="Texture" id=1]
+
+[resource]
+resource_name = "Green"
+albedo_color = Color( 0.419608, 0.635294, 0.32549, 1 )
+albedo_texture = ExtResource( 1 )
+metallic = 0.5
+uv1_scale = Vector3( 0.5, 0.5, 0.5 )
+uv1_triplanar = true

@@ -279,7 +279,7 @@ nodes/walk/node = SubResource( 22 )
 nodes/walk/position = Vector2( 60, 20 )
 nodes/win/node = SubResource( 23 )
 nodes/win/position = Vector2( 2340, 140 )
-node_connections = [ "output", 0, "win", "win", 0, "loose", "win", 1, "Victory", "die", 0, "pick", "die", 1, "Death", "attack", 0, "attacked", "attack", 1, "punch", "idle-walk-run", 0, "walk", "idle-walk-run", 1, "idle", "idle-walk-run", 2, "roll", "attacked", 0, "jump", "attacked", 1, "damage", "pick", 0, "attack", "pick", 1, "pickup", "jump", 0, "idle-walk-run", "jump", 1, "jumping", "roll", 0, "run", "roll", 1, "rolling", "loose", 0, "die", "loose", 1, "Animation" ]
+node_connections = [ "output", 0, "win", "die", 0, "pick", "die", 1, "Death", "win", 0, "loose", "win", 1, "Victory", "attack", 0, "attacked", "attack", 1, "punch", "roll", 0, "run", "roll", 1, "rolling", "pick", 0, "attack", "pick", 1, "pickup", "jump", 0, "idle-walk-run", "jump", 1, "jumping", "idle-walk-run", 0, "walk", "idle-walk-run", 1, "idle", "idle-walk-run", 2, "roll", "loose", 0, "die", "loose", 1, "Animation", "attacked", 0, "jump", "attacked", 1, "damage" ]
 
 [node name="King" type="KinematicBody" groups=[
 "Player",
